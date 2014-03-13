@@ -13,6 +13,8 @@ namespace Menu_Sytem_1
 {
     public class Menu_Item
     {
+        private const int X_OFFSET = 100;
+        private const int Y_SPACE = 300;
         private String Name;
         public String ProgramPosition;
         private Int32 ItemGap, ItemHeight, EdgeBuffer;
@@ -31,27 +33,27 @@ namespace Menu_Sytem_1
             ProgramPosition = PP;
             Properties = P;
             ItemNumber = IN;
-            Texture = C.Load<Texture2D>("Graphics/Menu/"+ Game1.ProgramPosition + "/" + Name);
-            ItemHeight = Texture.Height;
-            EdgeBuffer = Texture.Height;
+            //Texture = C.Load<Texture2D>("Graphics/Menu/"+ Game1.ProgramPosition + "/" + Name);
+       
+           // EdgeBuffer = Texture.Height;
             TimeSelected = 0.0;
             int X = 0;
             X += ItemGap;
             X += ItemNumber * ItemHeight;
-            Shape = new Rectangle(EdgeBuffer, X, Texture.Width, Texture.Height);
+            Shape = new Rectangle(X_OFFSET,IN*Y_SPACE,100,10);
         }
 
-        public void Draw(SpriteBatch SB, int Y)
+        public void Draw(SpriteBatch SB, int i)
         {
             if (Selected == false)
             {
              //   SB.Draw(this.Texture, this.Shape, Color.White);
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(10 , Y),Color.White);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET , i * Y_SPACE),Color.White);
             }
             else
             {
                // SB.Draw(this.Texture, this.Shape, Color.Red);
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(10, Y), Color.Red);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET, i * Y_SPACE), Color.Red);
             }
             if (PropertiesDisplay == true)
             {

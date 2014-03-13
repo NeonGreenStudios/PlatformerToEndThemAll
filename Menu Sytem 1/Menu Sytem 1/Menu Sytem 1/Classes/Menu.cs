@@ -85,7 +85,7 @@ namespace Menu_Sytem_1
         {
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                MenuItems[I].Draw(SB, I*25);
+                MenuItems[I].Draw(SB, I);
             }
         }
     }
