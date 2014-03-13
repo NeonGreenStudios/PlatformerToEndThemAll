@@ -72,6 +72,7 @@ namespace Menu_Sytem_1
             MenuSystem.MenuItems.Add(new Menu_Item("Level Creator", "Create, Load or Modify a level", 1, "Level Creator Main Menu Initiate", Content));
             MenuSystem.MenuItems.Add(new Menu_Item("null", "null", 2, "null", Content));
             MenuSystem.MenuItems.Add(new Menu_Item("Back", "Return to the Main Menu", 3, "Main Menu Initiate", Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("The Button to end all buttons (It basically does shit all)", "Do stuff", 4, "null", Content));
             MenuSystem.LastVoidClick = GT.TotalGameTime.TotalMilliseconds;
             ProgramPosition = "Developer Tools Main Menu";
         }

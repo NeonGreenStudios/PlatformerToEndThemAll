@@ -41,15 +41,17 @@ namespace Menu_Sytem_1
             Shape = new Rectangle(EdgeBuffer, X, Texture.Width, Texture.Height);
         }
 
-        public void Draw(SpriteBatch SB)
+        public void Draw(SpriteBatch SB, int Y)
         {
             if (Selected == false)
             {
-                SB.Draw(this.Texture, this.Shape, Color.White);
+             //   SB.Draw(this.Texture, this.Shape, Color.White);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(10 , Y),Color.White);
             }
             else
             {
-                SB.Draw(this.Texture, this.Shape, Color.Red);
+               // SB.Draw(this.Texture, this.Shape, Color.Red);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(10, Y), Color.Red);
             }
             if (PropertiesDisplay == true)
             {
