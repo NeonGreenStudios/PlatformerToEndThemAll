@@ -13,22 +13,20 @@ namespace Menu_Sytem_1
 {
     public class Menu_Item
     {
-        private const int X_OFFSET = 100;
-        private const int Y_SPACE = 300;
+        public static int X_OFFSET = 100;
+        public static int Y_SPACE = 100;
         private String Name;
         public String ProgramPosition;
-        private Int32 ItemGap, ItemHeight, EdgeBuffer;
         private String Properties;
         public Boolean Selected;
         public Double TimeSelected, LastSelected;
-        private Texture2D Texture;
         private Byte ItemNumber;
         public Rectangle Shape;
         public Boolean PropertiesDisplay;
 
         public Menu_Item(String N, String P, Byte IN, String PP, ContentManager C)
         {
-            ItemGap = 0;
+     
             Name = N;
             ProgramPosition = PP;
             Properties = P;
@@ -37,14 +35,14 @@ namespace Menu_Sytem_1
        
            // EdgeBuffer = Texture.Height;
             TimeSelected = 0.0;
-            int X = 0;
-            X += ItemGap;
-            X += ItemNumber * ItemHeight;
-            Shape = new Rectangle(X_OFFSET,IN*Y_SPACE,100,10);
+      
+     
+            Shape = new Rectangle(X_OFFSET,IN*Y_SPACE,1000,100);
         }
 
         public void Draw(SpriteBatch SB, int i)
         {
+            i += 1;
             if (Selected == false)
             {
              //   SB.Draw(this.Texture, this.Shape, Color.White);

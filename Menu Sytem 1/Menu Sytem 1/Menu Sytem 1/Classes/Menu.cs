@@ -31,10 +31,10 @@ namespace Menu_Sytem_1
             Vector2 Temp;
             Int16 X, Y;
             Temp = Game1.Function.GetMouseCoords();
+            X = Convert.ToInt16(Temp.X);
+            Y = Convert.ToInt16(Temp.Y);
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                X = Convert.ToInt16(Temp.X);
-                Y = Convert.ToInt16(Temp.Y);
                 MenuItems[I].Selected = Game1.Function.CollisionChecker(MenuItems[I].Shape, new Rectangle(X, Y, 1, 1));
             }
         }
