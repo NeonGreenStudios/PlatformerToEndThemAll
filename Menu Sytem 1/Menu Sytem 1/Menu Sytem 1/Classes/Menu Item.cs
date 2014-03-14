@@ -48,12 +48,12 @@ namespace Menu_Sytem_1
             {
              //   SB.Draw(this.Texture, this.Shape, Color.White);
 
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.White, 0f, new Vector2(X_OFFSET, i * Y_SPACE),MENU_SCALE,SpriteEffects.None,0);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.White, 0f, new Vector2(0,0),MENU_SCALE,SpriteEffects.None,0);
             }
             else
             {
                // SB.Draw(this.Texture, this.Shape, Color.Red);
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.Red, 0f, new Vector2(X_OFFSET, i * Y_SPACE), MENU_SCALE, SpriteEffects.None, 0);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.Red, 0f, new Vector2(0,0), MENU_SCALE, SpriteEffects.None, 0);
             }
             if (PropertiesDisplay == true)
             {
