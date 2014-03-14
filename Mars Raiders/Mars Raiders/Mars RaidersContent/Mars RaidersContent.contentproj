@@ -41,9 +41,7 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Graphics\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Fonts\Andy Spritefont.bmp">
       <Name>Andy Spritefont</Name>
@@ -54,6 +52,13 @@
   <ItemGroup>
     <Compile Include="Fonts\Background Spritefont.bmp">
       <Name>Background Spritefont</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\TileSheet\TileSheet.jpg">
+      <Name>TileSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

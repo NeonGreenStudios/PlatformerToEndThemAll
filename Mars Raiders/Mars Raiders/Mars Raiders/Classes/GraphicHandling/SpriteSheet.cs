@@ -11,19 +11,21 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Storage;
 
-namespace Tile_Based_Platformer_Test_2
+namespace Mars_Raiders.Classes
 {
-    public class Tile
+    class SpriteSheet
     {
-        public Vector2 TexturePosition;
-      
-        private String Raw_Data;
-        public String[] Texture_Information;
-        public Tile(String RD, Vector2 TP)
+        private static Texture2D Sheet;
+
+        public void load(String Path,ContentManager C)
         {
-            TexturePosition = TP;
-            Raw_Data = RD;
-            Texture_Information = Raw_Data.Split('/');
+            Sheet = C.Load<Texture2D>(Path);   
+        }
+
+
+        public void draw(Vector2 position, SpriteBatch sb)
+        {
+            
         }
     }
 }
