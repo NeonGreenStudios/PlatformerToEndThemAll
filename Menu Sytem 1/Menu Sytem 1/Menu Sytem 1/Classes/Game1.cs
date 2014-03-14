@@ -16,7 +16,7 @@ namespace Menu_Sytem_1
     {
         GraphicsDeviceManager graphics;
         public static SpriteFont Andy;
-        public static String ProgramPosition;
+        public static int ProgramPosition;
         public static SpriteFont Background;
         public static Functions Function = new Functions();
         SpriteBatch spriteBatch;
@@ -36,8 +36,8 @@ namespace Menu_Sytem_1
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-            ProgramPosition = "Main Menu Initiate";
+        
+            ProgramPosition = (int)ProgramPositions.MenuMainInitiate;
 
             base.Initialize();
         }
@@ -59,49 +59,50 @@ namespace Menu_Sytem_1
         private void Main_Menu_Initiate(GameTime GT)
         {
             MenuSystem.MenuItems.Clear();
-            MenuSystem.MenuItems.Add(new Menu_Item("Play Game", "Start Playing the Game?", 1, "Play Game", Content));
-            MenuSystem.MenuItems.Add(new Menu_Item("Developer Tools", "NO NOOBS ALLOWED", 2, "Developer Tools Initiate", Content));
-            MenuSystem.MenuItems.Add(new Menu_Item("Quit", "Really?", 3, "END", Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("Play Game", "Start Playing the Game?", 1, (int) ProgramPositions.MenuMain, Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("Developer Tools", "NO NOOBS ALLOWED", 2, (int)ProgramPositions.MenuDeveloperInitiate, Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("Quit", "Really?", 3, (int)ProgramPositions.END, Content));
             MenuSystem.LastVoidClick = GT.TotalGameTime.TotalMilliseconds;
-            ProgramPosition = "Main Menu";
+            ProgramPosition = (int)ProgramPositions.MenuMain; 
         }
+
+
 
         private void Developer_Main_Menu_Initiate(GameTime GT)
         {
             MenuSystem.MenuItems.Clear();
-            MenuSystem.MenuItems.Add(new Menu_Item("Level Creator", "Create, Load or Modify a level", 1, "Level Creator Main Menu Initiate", Content));
-            MenuSystem.MenuItems.Add(new Menu_Item("null", "null", 2, "null", Content));
-            MenuSystem.MenuItems.Add(new Menu_Item("Back", "Return to the Main Menu", 3, "Main Menu Initiate", Content));
-            MenuSystem.MenuItems.Add(new Menu_Item("The Button to end all buttons (It basically does shit all)", "Do stuff", 4, "null", Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("Level Creator", "Create, Load or Modify a level", 1, (int)ProgramPositions.MenuMain, Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("Back", "Return to the Main Menu", 2, (int)ProgramPositions.MenuMainInitiate, Content));
+            MenuSystem.MenuItems.Add(new Menu_Item("The Button to end all buttons (It basically does shit all)","CLICK IF YOU DAREEEE", 3, (int)ProgramPositions.MenuMain, Content));
             MenuSystem.LastVoidClick = GT.TotalGameTime.TotalMilliseconds;
-            ProgramPosition = "Developer Tools Main Menu";
+            ProgramPosition = (int)ProgramPositions.MenuDeveloper;
         }
 
         protected override void Update(GameTime gameTime)
         {
             switch (ProgramPosition)
             {
-                case "Main Menu Initiate":
+                case (int)ProgramPositions.MenuMainInitiate: //placeholder for main menu initiate
                     Main_Menu_Initiate(gameTime);
                     break;
 
-                case "Main Menu":
+                case (int)ProgramPositions.MenuMain:
                     MenuSystem.Contents(gameTime);
                     break;
 
-                case "Play Game":
-                    ProgramPosition = "Main Menu";
+                case (int)ProgramPositions.GameStart:
+                    ProgramPosition = (int)ProgramPositions.MenuMain; //placeholder for level initiation
                     break;
 
-                case "Developer Tools Initiate":
+                case (int)ProgramPositions.MenuDeveloperInitiate:
                     Developer_Main_Menu_Initiate(gameTime);
                     break;
 
-                case "Developer Tools Main Menu":
+                case (int)ProgramPositions.MenuDeveloper:
                     MenuSystem.Contents(gameTime);
                     break;
 
-                case "END":
+                case (int)ProgramPositions.END:
                     this.Exit();
                     break;
 
@@ -114,15 +115,10 @@ namespace Menu_Sytem_1
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            switch (ProgramPosition)
-            {
-                case "Main Menu":
-                    MenuSystem.Draw(spriteBatch);
-                break;
-                case "Developer Tools Main Menu":
-                MenuSystem.Draw(spriteBatch);
-                break;
-            }
+
+            
+            MenuSystem.Draw(spriteBatch);
+           
             spriteBatch.End();
             base.Draw(gameTime);
         }

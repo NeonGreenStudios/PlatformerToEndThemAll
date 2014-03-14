@@ -15,9 +15,9 @@ namespace Menu_Sytem_1
     {
         public static int X_OFFSET = 100;
         public static int Y_SPACE = 100;
-        public static float MENU_SCALE = 1.0f;
+        public static float MENU_SCALE = 1.5f;
         private String Name;
-        public String ProgramPosition;
+        public int ProgramPosition;
         private String Properties;
         public Boolean Selected;
         public Double TimeSelected, LastSelected;
@@ -25,7 +25,7 @@ namespace Menu_Sytem_1
         public Rectangle Shape;
         public Boolean PropertiesDisplay;
 
-        public Menu_Item(String N, String P, Byte IN, String PP, ContentManager C)
+        public Menu_Item(String N, String P, Byte IN, int PP, ContentManager C)
         {
      
             Name = N;
