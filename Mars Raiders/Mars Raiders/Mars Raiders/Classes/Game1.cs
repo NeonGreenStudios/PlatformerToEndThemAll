@@ -15,7 +15,7 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        public static Functions Function = new Functions();
+        public static Functions Function = new Functions(); // This is the CLASS that does all the function SHIT
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu SHIT
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;

@@ -14,8 +14,16 @@ namespace Mars_Raiders
 {
     public class Menu_Items
     {
+        private String Properties,Name; //The name of the position on the file//The information that pops up on the pop up display
+        private Boolean Selected, PropertiesDisplay;//Whether the mouse is hovered over the RECTANGLE or not// Whether the pop up display is displaying or not
+        private Rectangle Shape;
+        private Byte ItemNumber; //The position that it will appear
+        private Double TimeSelected, LastSelected; //How long the mouse has been hovered over it// When it last hovered it
 
-
+        public Rectangle shape
+        {
+            get { return Shape; }
+        }
 
     }
 }
