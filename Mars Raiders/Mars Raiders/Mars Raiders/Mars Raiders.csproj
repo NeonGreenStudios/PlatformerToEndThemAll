@@ -109,9 +109,11 @@
   <ItemGroup>
     <Compile Include="Classes\Contents.cs" />
     <Compile Include="Classes\Function.cs" />
+    <Compile Include="Classes\Level\Level.cs" />
     <Compile Include="Classes\Menu Items.cs" />
     <Compile Include="Classes\Menu System.cs" />
     <Compile Include="Classes\ProgramPosition.cs" />
+    <Compile Include="Classes\Level\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Classes\Game1.cs" />
