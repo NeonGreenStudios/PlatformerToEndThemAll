@@ -15,7 +15,7 @@ namespace Menu_Sytem_1
     {
         public static int X_OFFSET = 100;
         public static int Y_SPACE = 100;
-        public static float MENU_SCALE = 1.5f;
+        public static float MENU_SCALE = 1f;
         private String Name;
         public int ProgramPosition;
         private String Properties;

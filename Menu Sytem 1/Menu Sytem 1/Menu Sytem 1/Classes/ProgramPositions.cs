@@ -17,6 +17,5 @@ namespace Menu_Sytem_1
         MenuDeveloperInitiate = 7,
         END = 8,
         GameStart = 9
-
     }
 }
