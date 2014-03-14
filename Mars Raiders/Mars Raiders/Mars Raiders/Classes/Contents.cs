@@ -24,8 +24,14 @@ namespace Mars_Raiders
 
         public void Start_Menu_Initiate(ContentManager Content)
         {
-            Game1.Menu.MenuItems.Add(new Menu_Items("Play Game","Begin the Game",1,500,Content));
-            Game1.ProgramPosition = (int)ProgramPositions.MenuStart;
+            Game1.Menu.MenuItems.Add(new Menu_Items("Play Game","Begin the Game",1,(int)ProgramPositions.MenuMain,Content));
+            Game1.Menu.MenuItems.Add(new Menu_Items("Level Creator", "Create a level", 1, (int)ProgramPositions.MenuDeveloperInitiate, Content));
+            Game1.ProgramPosition = (int)ProgramPositions.MenuMain;
+        }
+
+        public void Level_Creator_Initiate(ContentManager Content)
+        {
+            Game1.Level.generate();          
         }
 
 

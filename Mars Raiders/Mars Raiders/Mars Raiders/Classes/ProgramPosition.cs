@@ -14,6 +14,9 @@ namespace Mars_Raiders
         MenuMainInitiate = 4,
         MenuMain = 5,
         MenuDeveloperInitiate = 6,
-        MenuDeveloper = 7
+        MenuDeveloper = 7,
+        LevelCreatorInitiate = 8,
+        LevelCreator = 9
+
     }
 }

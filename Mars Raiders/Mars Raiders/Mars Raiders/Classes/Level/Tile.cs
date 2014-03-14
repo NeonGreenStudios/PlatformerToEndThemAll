@@ -11,16 +11,27 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Storage;
 
-namespace Tile_Based_Platformer_Test_2
+namespace Mars_Raiders
 {
-    public class Tile
+    public abstract class Tile
     {
-        private String Raw_Data;
-        public String[] Texture_Information;
-        public Tile(String RD)
+
+        protected Vector2 TextureLocation;
+        public const int TileSideLengthInPixels = 32;
+        public static TileGrass Grass = new TileGrass();
+
+        public Tile()
         {
-            Raw_Data = RD;
-            Texture_Information = Raw_Data.Split('/');
+            defineTexture();
         }
+
+        protected abstract void defineTexture();
+        public abstract void update(GameTime gt);
+        public void draw(SpriteBatch SB, ContentManager CM, int x, int y)
+        {
+            SB.Draw(CM.Load<Texture2D>("Tiles/Tile SheetTom"), new Rectangle(x * TileSideLengthInPixels, y * TileSideLengthInPixels, TileSideLengthInPixels, TileSideLengthInPixels), //the destination rectangle
+                new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)(TextureLocation.Y * TileSideLengthInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White);
+        }
+      
     }
 }

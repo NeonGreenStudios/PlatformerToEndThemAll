@@ -109,7 +109,9 @@
   <ItemGroup>
     <Compile Include="Classes\Contents.cs" />
     <Compile Include="Classes\Function.cs" />
+    <Compile Include="Classes\GraphicHandling\SpriteSheet.cs" />
     <Compile Include="Classes\Level\Level.cs" />
+    <Compile Include="Classes\Level\TileGrass.cs" />
     <Compile Include="Classes\Menu Items.cs" />
     <Compile Include="Classes\Menu System.cs" />
     <Compile Include="Classes\ProgramPosition.cs" />

@@ -41,7 +41,13 @@
       <Private>False</Private>
     </Reference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Graphics\TileSheet\TileSheetTom.jpg">
+      <Name>TileSheetTom</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Fonts\Andy Spritefont.bmp">
       <Name>Andy Spritefont</Name>
@@ -59,6 +65,13 @@
   <ItemGroup>
     <Compile Include="Graphics\Menu Item.png">
       <Name>Menu Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Graphics\TileSheet\TileSheet.jpg">
+      <Name>TileSheet</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
