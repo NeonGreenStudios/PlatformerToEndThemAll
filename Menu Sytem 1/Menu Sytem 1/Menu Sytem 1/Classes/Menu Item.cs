@@ -15,6 +15,7 @@ namespace Menu_Sytem_1
     {
         public static int X_OFFSET = 100;
         public static int Y_SPACE = 100;
+        public static float MENU_SCALE = 1.0f;
         private String Name;
         public String ProgramPosition;
         private String Properties;
@@ -46,12 +47,13 @@ namespace Menu_Sytem_1
             if (Selected == false)
             {
              //   SB.Draw(this.Texture, this.Shape, Color.White);
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET , i * Y_SPACE),Color.White);
+
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.White, 0f, new Vector2(X_OFFSET, i * Y_SPACE),MENU_SCALE,SpriteEffects.None,0);
             }
             else
             {
                // SB.Draw(this.Texture, this.Shape, Color.Red);
-                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET, i * Y_SPACE), Color.Red);
+                SB.DrawString(Game1.Andy, this.Name, new Vector2(X_OFFSET * MENU_SCALE, i * Y_SPACE * MENU_SCALE), Color.Red, 0f, new Vector2(X_OFFSET, i * Y_SPACE), MENU_SCALE, SpriteEffects.None, 0);
             }
             if (PropertiesDisplay == true)
             {
