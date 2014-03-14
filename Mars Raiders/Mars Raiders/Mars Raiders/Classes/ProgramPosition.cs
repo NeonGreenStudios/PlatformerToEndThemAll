@@ -7,10 +7,13 @@ namespace Mars_Raiders
 {
     enum ProgramPositions : int
     {
-        GameInitiate = 0,
-        StartMenuInitiator = 1,
-        END = 2,
-        StartMenu = 3,
-        DeveloperMenuInitator = 4
+        END = 0,
+        GameInitiate = 1,
+        MenuStartInitiate = 2,
+        MenuStart = 3,
+        MenuMainInitiate = 4,
+        MenuMain = 5,
+        MenuDeveloperInitiate = 6,
+        MenuDeveloper = 7
     }
 }

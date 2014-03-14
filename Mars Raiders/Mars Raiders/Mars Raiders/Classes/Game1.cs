@@ -62,11 +62,11 @@ namespace Mars_Raiders
                     Contents.Game_Initiate();
                     break;
 
-                case (int)ProgramPositions.StartMenuInitiator:
+                case (int)ProgramPositions.MenuStartInitiate:
                     Contents.Start_Menu_Initiate(Content);
                     break;
 
-                case (int)ProgramPositions.StartMenu:
+                case (int)ProgramPositions.MenuStart:
                     Game1.Menu.Contents(gameTime);
                     break;
 
@@ -83,7 +83,7 @@ namespace Mars_Raiders
             spriteBatch.Begin();
             switch (ProgramPosition)
             {
-                case (int)ProgramPositions.StartMenu:
+                case (int)ProgramPositions.MenuStart:
                     Menu.Draw(spriteBatch);
                     break;
             }
