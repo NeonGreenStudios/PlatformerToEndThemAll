@@ -30,6 +30,8 @@ namespace Mars_Raiders
             ItemNumber = itemNumber;
             TimeSelected = 0.0;
             XOffset = 10.0f;
+            YOffset = 10.0f;
+            YGap = 5.0f;
         }
 
         public void Draw(SpriteBatch spriteBatch)
