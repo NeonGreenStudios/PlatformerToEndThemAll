@@ -15,11 +15,14 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
+        public static float Scale; // This is the VARIABLE that stores the SCALE for everything in the program
+        public static SpriteFont Background;
+        public static SpriteFont Andy; // This is the ANDY font VARIABLE
         public static Functions Function = new Functions(); // This is the CLASS that does all the function SHIT
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu SHIT
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;
-        SpriteBatch SpriteBatch;
+        SpriteBatch spriteBatch;
 
         public Game1()
         {
@@ -36,12 +39,14 @@ namespace Mars_Raiders
         protected override void Initialize()
         {
             base.Initialize();
+            Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
+            Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
             ProgramPosition = (int)ProgramPositions.GameInitiate;
         }
 
         protected override void LoadContent()
         {
-            SpriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
         }
 
         protected override void UnloadContent()
@@ -58,7 +63,11 @@ namespace Mars_Raiders
                     break;
 
                 case (int)ProgramPositions.StartMenuInitiator:
+                    Contents.Start_Menu_Initiate(Content);
+                    break;
 
+                case (int)ProgramPositions.StartMenu:
+                    Game1.Menu.Contents(gameTime);
                     break;
 
                 case (int)ProgramPositions.END:
@@ -71,12 +80,14 @@ namespace Mars_Raiders
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.DarkOrange);
+            spriteBatch.Begin();
             switch (ProgramPosition)
             {
-                case (int)ProgramPositions.GameInitiate:
-
+                case (int)ProgramPositions.StartMenu:
+                    Menu.Draw(spriteBatch);
                     break;
             }
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

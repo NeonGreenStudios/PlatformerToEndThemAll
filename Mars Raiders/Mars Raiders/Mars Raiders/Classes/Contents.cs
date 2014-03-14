@@ -22,6 +22,12 @@ namespace Mars_Raiders
             Game1.ProgramPosition = (int)ProgramPositions.StartMenuInitiator;
         }
 
+        public void Start_Menu_Initiate(ContentManager Content)
+        {
+            Game1.Menu.MenuItems.Add(new Menu_Items("Play Game","Begin the Game",1,500,Content));
+            Game1.ProgramPosition = (int)ProgramPositions.StartMenu;
+        }
+
 
     }
 }

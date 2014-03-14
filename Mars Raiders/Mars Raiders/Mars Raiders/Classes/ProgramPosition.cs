@@ -10,5 +10,7 @@ namespace Mars_Raiders
         GameInitiate = 0,
         StartMenuInitiator = 1,
         END = 2,
+        StartMenu = 3,
+        DeveloperMenuInitator = 4
     }
 }
