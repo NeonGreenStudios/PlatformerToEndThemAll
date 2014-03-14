@@ -20,10 +20,10 @@ namespace Mars_Raiders
         private Byte ItemNumber; //The position that it will appear
         private Double TimeSelected, LastSelected; //How long the mouse has been hovered over it// When it last hovered it
 
-        public Rectangle shape
+        public Rectangle GetShape
         {
             get { return Shape; }
-        }
+        } //This is used to get the RECTANGLE information of the menu_item
 
     }
 }

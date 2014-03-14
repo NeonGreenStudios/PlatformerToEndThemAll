@@ -60,14 +60,17 @@ namespace Mars_Raiders
                 case (int)ProgramPositions.StartMenuInitiator:
 
                     break;
+
+                case (int)ProgramPositions.END:
+                    this.Exit();
+                    break;
             }
-                this.Exit();
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.DarkOrange);
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.GameInitiate:
