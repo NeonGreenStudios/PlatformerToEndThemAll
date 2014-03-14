@@ -15,7 +15,7 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        public static float Scale; // This is the VARIABLE that stores the SCALE for everything in the program
+        public static float Scale = 1; // This is the VARIABLE that stores the SCALE for everything in the program
         public static SpriteFont Background;
         public static SpriteFont Andy; // This is the ANDY font VARIABLE
         public static Functions Function = new Functions(); // This is the CLASS that does all the function SHIT

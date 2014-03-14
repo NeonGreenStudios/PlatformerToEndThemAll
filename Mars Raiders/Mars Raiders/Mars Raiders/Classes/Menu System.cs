@@ -88,7 +88,7 @@ namespace Mars_Raiders
         {
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                MenuItems[I].Draw(SB, I);
+                MenuItems[I].Draw(SB);
             }
         }
 

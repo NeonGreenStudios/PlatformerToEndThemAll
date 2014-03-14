@@ -20,7 +20,7 @@ namespace Mars_Raiders
         public Rectangle Shape;
         public Byte ItemNumber; //The position that it will appear
         public Double TimeSelected, FirstSelected; //How long the mouse has been hovered over it// When it last hovered it
-        public float Offset, Gap;
+        public float XOffset, YGap, YOffset;
 
         public Menu_Items(String name, String properties, Byte itemNumber, int programPosition, ContentManager Content)
         {
@@ -29,19 +29,18 @@ namespace Mars_Raiders
             Properties = properties;
             ItemNumber = itemNumber;
             TimeSelected = 0.0;
-            Offset = 10.0f;
+            XOffset = 10.0f;
         }
 
-        public void Draw(SpriteBatch spriteBatch, int i)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            i += 1;
             if (Selected == false)
             {
-                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(Offset, 0), Color.White, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset, YOffset + ((YGap + YOffset) * this.ItemNumber)), Color.White, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
             }
             else
             {
-                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(Offset, Offset + ((Gap + Offset) * this.ItemNumber)), Color.Red, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
+                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset, YOffset + ((YGap + YOffset) * this.ItemNumber)), Color.Red, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
             }
             if (PropertiesDisplay == true)
             {
