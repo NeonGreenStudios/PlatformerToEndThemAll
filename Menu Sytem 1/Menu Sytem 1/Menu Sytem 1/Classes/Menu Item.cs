@@ -37,7 +37,7 @@ namespace Menu_Sytem_1
             TimeSelected = 0.0;
       
      
-            Shape = new Rectangle(X_OFFSET,IN*Y_SPACE,1000,100);
+            Shape = new Rectangle(X_OFFSET,IN*Y_SPACE,1000,70);
         }
 
         public void Draw(SpriteBatch SB, int i)
