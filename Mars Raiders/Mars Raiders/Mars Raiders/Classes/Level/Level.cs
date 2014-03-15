@@ -17,27 +17,30 @@ namespace Mars_Raiders
     {
       
         public Tile[,] Map;
-        public Vector2 MapDimensions = new Vector2 (10,10);
+        public Vector2 MapDimensions = new Vector2 (9,9);
 
        
         public void generate()
         {
-            for (int x = 0; x < MapDimensions.X - 1; x++){
-                for (int y = 0; y < MapDimensions.Y - 1; x++)
+            Map = new Tile[10, 10];
+            for (int y = 0; y < 10; y++)
+            {
+                for (int x = 0; x < 10; x++)
                 {
                     Map[x,y] = Tile.Grass;
                 }
             }
+
             
         }
         public void Draw(SpriteBatch SB, ContentManager C)
         {
 
-            for (int x = 0; x <= MapDimensions.X; x++)
+            for (int y = 0; y < 10; y++)
             {
-                for (int y = 0; y <= MapDimensions.Y; x++)
+                for (int x = 0; x < 10; x++)
                 {
-                    Map[x,y].draw(SB ,C, x,y);
+                    Map[x, y].draw(SB,C,x,y);
                 }
             }
             
@@ -49,11 +52,11 @@ namespace Mars_Raiders
 
         private void update(GameTime gametime)
         {
-            for (int x = 0; x <= MapDimensions.X; x++)
+            for (int y = 0; y < 10; y++)
             {
-                for (int y = 0; y <= MapDimensions.Y; x++)
+                for (int x = 0; x < 10; x++)
                 {
-                    Map[x,y].update(gametime);
+                    Map[x, y].update(gametime);
                 }
             }
         }

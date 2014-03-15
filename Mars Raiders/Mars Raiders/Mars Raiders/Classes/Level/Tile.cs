@@ -29,7 +29,7 @@ namespace Mars_Raiders
         public abstract void update(GameTime gt);
         public void draw(SpriteBatch SB, ContentManager CM, int x, int y)
         {
-            SB.Draw(CM.Load<Texture2D>("Tiles/Tile SheetTom"), new Rectangle(x * TileSideLengthInPixels, y * TileSideLengthInPixels, TileSideLengthInPixels, TileSideLengthInPixels), //the destination rectangle
+            SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheetTom"), new Rectangle(x * TileSideLengthInPixels, y * TileSideLengthInPixels, TileSideLengthInPixels, TileSideLengthInPixels), //the destination rectangle
                 new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)(TextureLocation.Y * TileSideLengthInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White);
         }
       

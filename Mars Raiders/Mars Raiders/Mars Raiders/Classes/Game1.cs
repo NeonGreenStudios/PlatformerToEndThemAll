@@ -74,11 +74,10 @@ namespace Mars_Raiders
 
                 case (int) ProgramPositions.LevelCreatorInitiate:
                     Contents.Level_Creator_Initiate(Content);
-        
                     ProgramPosition = (int)ProgramPositions.LevelCreator;
                     break;
                 case (int)ProgramPositions.LevelCreator:
-                    Game1.Level.Draw(spriteBatch, Content);
+                    
                     break;
                 case (int)ProgramPositions.END:
                     this.Exit();
@@ -95,6 +94,9 @@ namespace Mars_Raiders
             {
                 case (int)ProgramPositions.MenuStart:
                     Menu.Draw(spriteBatch);
+                    break;
+                case (int)ProgramPositions.LevelCreator:
+                    Game1.Level.Draw(spriteBatch, Content);
                     break;
             }
             spriteBatch.End();
