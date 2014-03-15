@@ -18,7 +18,6 @@ namespace Mars_Raiders
         public static float Scale = 1; // This is the VARIABLE that stores the SCALE for everything in the program
         public static SpriteFont Background;
         public static SpriteFont Andy; // This is the ANDY font VARIABLE
-        public static Functions Function = new Functions(); // This is the CLASS that does all the function handling
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu handling
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;

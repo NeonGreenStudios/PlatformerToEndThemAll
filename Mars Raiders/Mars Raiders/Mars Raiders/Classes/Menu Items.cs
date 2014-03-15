@@ -47,7 +47,7 @@ namespace Mars_Raiders
             if (PropertiesDisplay == true)
             {
                 Vector2 Temp = new Vector2(0,0);
-                Temp = Game1.Function.GetMouseCoords();
+                Temp = Functions.GetMouseCoords();
                 Temp.Y -= 45;
                 spriteBatch.DrawString(Game1.Background, this.Properties, Temp, Color.Black);
                 spriteBatch.DrawString(Game1.Andy, this.Properties, Temp, Color.White);

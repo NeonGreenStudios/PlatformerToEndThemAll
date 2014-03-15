@@ -16,15 +16,15 @@ namespace Mars_Raiders
 
     public class Functions
     {
-        private MouseState ms = Mouse.GetState();
+        private static MouseState ms;
 
-        public Vector2 GetMouseCoords()
+        public static Vector2 GetMouseCoords()
         {
             ms = Mouse.GetState();
             return new Vector2(ms.X, ms.Y);
         }
 
-        public Boolean MouseLeftClick()
+        public static Boolean MouseLeftClick()
         {
             ms = Mouse.GetState();
             if (ms.LeftButton == ButtonState.Pressed)
@@ -37,7 +37,7 @@ namespace Mars_Raiders
             }
         }
 
-        public Boolean CollisionChecker(Rectangle RecA, Rectangle RecB)
+        public static Boolean CollisionChecker(Rectangle RecA, Rectangle RecB)
         {
             if (RecA.Intersects(RecB))
             {
@@ -47,6 +47,11 @@ namespace Mars_Raiders
             {
                 return false;
             }
+        }
+
+        public static float toRadians(float angle)
+        {
+            return (float)Math.PI * angle / 180;
         }
     }
 }

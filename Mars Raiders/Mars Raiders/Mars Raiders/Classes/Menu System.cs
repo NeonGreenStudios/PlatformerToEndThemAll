@@ -33,12 +33,12 @@ namespace Mars_Raiders
         {
             Vector2 Temp;
             Int16 X, Y;
-            Temp = Game1.Function.GetMouseCoords();
+            Temp = Functions.GetMouseCoords();
             X = Convert.ToInt16(Temp.X);
             Y = Convert.ToInt16(Temp.Y);
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                MenuItems[I].Selected = Game1.Function.CollisionChecker(MenuItems[I].Shape, new Rectangle(X, Y, 1, 1));
+                MenuItems[I].Selected = Functions.CollisionChecker(MenuItems[I].Shape, new Rectangle(X, Y, 1, 1));
             }
         }
 
@@ -71,7 +71,7 @@ namespace Mars_Raiders
         private void Click()
         {
             Boolean Click;
-            Click = Game1.Function.MouseLeftClick();
+            Click = Functions.MouseLeftClick();
             if (Click == true)
             {
                 for (int I = 0; I <= MenuItems.Count - 1; I++)

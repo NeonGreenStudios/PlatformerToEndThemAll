@@ -17,7 +17,7 @@ namespace Mars_Raiders
     {
       
         public Tile[,] Map;
-        public Vector2 MapDimensions = new Vector2 (10,10);
+        public Vector2 MapDimensions = new Vector2 (100,100);
 
        
         public void generate()
@@ -34,8 +34,13 @@ namespace Mars_Raiders
             for (int x = 1; x < (int)MapDimensions.X; x++)
             {
                 Map[x, 5].Raised = true;
+                Map[x, 4].Raised = true;
             }
-        
+
+            for (int x = 3; x < (int)MapDimensions.X - 2; x++)
+            {
+                Map[x, 3].Raised = true;
+            }
             
         }
         public void Draw(SpriteBatch SB, ContentManager C)
