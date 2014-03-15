@@ -41,6 +41,10 @@ namespace Mars_Raiders
             {
                 Map[x, 3].Raised = true;
             }
+            for (int x = 3; x < 8; x++)
+            {
+                Map[x, 7] = new TileWater();
+            }
             
         }
         public void Draw(SpriteBatch SB, ContentManager C)

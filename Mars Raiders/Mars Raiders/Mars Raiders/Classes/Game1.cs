@@ -15,7 +15,8 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
         GraphicsDeviceManager graphics;
-        public static float Scale = 1; // This is the VARIABLE that stores the SCALE for everything in the program
+        public static float Scale = 0.5f; // This is the VARIABLE that stores the SCALE for everything in the program
+        public static float Zoom = 1; // This is the VARIABLE that stores the ZOOM for the level
         public static SpriteFont Background;
         public static SpriteFont Andy; // This is the ANDY font VARIABLE
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu handling
@@ -89,6 +90,7 @@ namespace Mars_Raiders
         {
             GraphicsDevice.Clear(Color.DarkOrange);
             spriteBatch.Begin();
+            
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.MenuStart:
