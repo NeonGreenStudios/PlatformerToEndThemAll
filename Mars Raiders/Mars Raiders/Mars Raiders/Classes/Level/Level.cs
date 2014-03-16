@@ -18,6 +18,7 @@ namespace Mars_Raiders
       
         public Tile[,] Map;
         public Vector2 MapDimensions = new Vector2 (100,100);
+        public EntityCursor Player = new EntityCursor();
 
        
         public void generate()
@@ -31,7 +32,7 @@ namespace Mars_Raiders
                 }
             }
 
-            for (int x = 1; x < (int)MapDimensions.X; x++)
+            for (int x = 1; x < 9; x++)
             {
                 Map[x, 5].Raised = true;
                 Map[x, 4].Raised = true;
@@ -57,14 +58,14 @@ namespace Mars_Raiders
                     Map[x, y].draw(SB,C,x,y,this);
                 }
             }
-            
+            Player.render(SB, C);
 
         }
 
 
  
 
-        private void update(GameTime gametime)
+        public void update(GameTime gametime)
         {
             for (int y = 0; y < (int)MapDimensions.Y; y++)
             {
@@ -73,6 +74,7 @@ namespace Mars_Raiders
                     Map[x, y].update(gametime);
                 }
             }
+            Player.update(gametime,this);
         }
     }
 
