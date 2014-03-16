@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -9,7 +8,6 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
-using Microsoft.Xna.Framework.Storage;
 
 namespace Mars_Raiders
 {
@@ -30,31 +28,11 @@ namespace Mars_Raiders
         public override void update(GameTime gt, Level level)
         {
             KeyboardState ks = Keyboard.GetState();
+            Vector2 MousePosition = Functions.GetMouseCoords();
 
-           
-   
-
+            this.x = (int)(MousePosition.X / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
+            this.y = (int)(MousePosition.Y / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
             
-            if (ks.IsKeyDown(Keys.Up) &  y > 0)
-            {
-                y--;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
-            }
-            if (ks.IsKeyDown(Keys.Down) & y < level.MapDimensions.Y)
-            {
-                y++;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
-            }
-            if (ks.IsKeyDown(Keys.Right) & x < level.MapDimensions.X)
-            {
-                x++;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
-            }
-            if (ks.IsKeyDown(Keys.Left) & x > 0)
-            {
-                x--;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
-            }
             if (ks.IsKeyDown(Keys.Space))
             {
                 level.Map[x, y].Raised = !level.Map[x, y].Raised;
@@ -73,6 +51,20 @@ namespace Mars_Raiders
             if (ks.IsKeyDown(Keys.D1))
             {
                 level.Map[x, y] = new TileStone();
+            }
+
+            if (ks.IsKeyDown(Keys.D2))
+            {
+                level.Map[x, y] = new TileSand();
+            }
+
+            if (ks.IsKeyDown(Keys.S))
+            {
+             level.save();
+            }
+            if (ks.IsKeyDown(Keys.L))
+            {
+              level.load();
             }
         
         }

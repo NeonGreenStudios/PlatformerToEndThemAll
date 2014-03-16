@@ -8,6 +8,8 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using System.Diagnostics;
+using System.IO;
 
 namespace Mars_Raiders
 {
@@ -22,6 +24,8 @@ namespace Mars_Raiders
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu handling
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;
+
+        public static CommonApplicationData appdata;
 
         public static Level Level = new Level ();
         SpriteBatch spriteBatch;
@@ -41,6 +45,9 @@ namespace Mars_Raiders
         protected override void Initialize()
         {
             base.Initialize();
+            appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
+            Process.Start(appdata.ApplicationFolderPath);
+            
             Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
             ProgramPosition = (int)ProgramPositions.LevelCreatorInitiate;
@@ -77,7 +84,7 @@ namespace Mars_Raiders
                     ProgramPosition = (int)ProgramPositions.LevelCreator;
                     break;
                 case (int)ProgramPositions.LevelCreator:
-                    
+                    Game1.Level.update(gameTime);
                     break;
                 case (int)ProgramPositions.END:
                     this.Exit();
@@ -88,16 +95,15 @@ namespace Mars_Raiders
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.DarkOrange);
-            spriteBatch.Begin();
-            
+            GraphicsDevice.Clear(Color.White);
+            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
+        
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.MenuStart:
                     Menu.Draw(spriteBatch);
                     break;
                 case (int)ProgramPositions.LevelCreator:
-                    Game1.Level.update(gameTime);
                     Game1.Level.Draw(spriteBatch, Content);
                     break;
             }

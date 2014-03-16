@@ -111,6 +111,7 @@
     <Compile Include="Classes\Entity\Entity.cs" />
     <Compile Include="Classes\Entity\EntityCursor.cs" />
     <Compile Include="Classes\Function.cs" />
+    <Compile Include="Classes\IO\CommonAppData.cs" />
     <Compile Include="Classes\Level\TileSand.cs" />
     <Compile Include="Classes\Level\TileWater.cs" />
     <Compile Include="Classes\Level\TileStone.cs" />
