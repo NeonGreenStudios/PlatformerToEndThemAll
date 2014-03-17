@@ -87,7 +87,7 @@ namespace Mars_Raiders
                 for (int x = 0; x < (int)MapDimensions.X; x++)
                 {
                    
-                    writer.Write(":" + Map[x, y].ID.ToString() + ";" +  Map[x, y].Raised.ToString() + ";" + x.ToString() + ";" + y.ToString() + "/");
+                    writer.Write(":" + Map[x, y].ID.ToString() + "/" +  Map[x, y].Raised.ToString() + "/" + x.ToString() + "/" + y.ToString() + "/");
 
                 }
                
@@ -99,35 +99,29 @@ namespace Mars_Raiders
         {
 
             System.IO.StreamReader reader = new System.IO.StreamReader(Game1.appdata.ApplicationFolderPath + "/LevelCreator.txt");
-
-            reader.ReadToEnd();
             string[] Split1RawData = reader.ReadToEnd().Split(':');
 
-            for (int i = 0; i < Split1RawData.Length -1; i ++)
+            for (int i = 1; i < Split1RawData.Length -1; i ++) //starts at one to avoid the empty first entry
             {
-                string[] Data =  Split1RawData[i].Split(';');
-                string t = Data[0];
-                Debug.Print("hh");
-    
-               
-                //int X = Convert.ToInt16(Data[2]);
-                //int Y = Convert.ToInt16(Data[3]);
-                //switch (Data[0])
-                //{
-                //    case "0":
-                //        Map[X, Y] = new TileGrass();
-                //        break;
-                //    case "1":
-                //        Map[X, Y] = new TileSand();
-                //        break;
-                //    case "2":
-                //        Map[X, Y] = new TileStone();
-                //        break;
-                //    case "3":
-                //        Map[X, Y] = new TileWater();
-                //        break;
-                //}
-                //Map[X, Y].Raised = Convert.ToBoolean(Data[1]);
+                string[] Data =  Split1RawData[i].Split('/');
+                int X = Convert.ToInt16(Data[2]);
+                int Y = Convert.ToInt16(Data[3]);
+                switch (Data[0])
+                {
+                    case "0":
+                        Map[X, Y] = new TileGrass();
+                        break;
+                    case "1":
+                        Map[X, Y] = new TileSand();
+                        break;
+                    case "2":
+                        Map[X, Y] = new TileStone();
+                        break;
+                    case "3":
+                        Map[X, Y] = new TileWater();
+                        break;
+                }
+                Map[X, Y].Raised = Convert.ToBoolean(Data[1]);
             }
 
             reader.Dispose();
