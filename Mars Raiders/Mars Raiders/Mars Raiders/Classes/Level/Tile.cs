@@ -61,13 +61,11 @@ namespace Mars_Raiders
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom))), //the destination rectangle
                new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels),(int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White); //the source rectangle
         }
-
         protected void drawLowered(SpriteBatch SB, ContentManager CM, int x, int y) //draws tile if it is lowered
         {
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
                new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels)), TileSideLengthInPixels, TileSideLengthInPixels), Color.White); //the source rectangle
         }
-
         protected void drawDrop(SpriteBatch SB, ContentManager CM, int x, int y) //draws the drop on the top of the tile (The little darkish line to show the next tile up is lowered)
         {
 
@@ -78,13 +76,15 @@ namespace Mars_Raiders
         {
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(((y + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels  * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
            new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + TileSideLengthInPixels - RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White,Functions.toRadians (-90f),new Vector2 (0,0),SpriteEffects.None, 0); //the source rectangle
-        }
-
+        }   
         protected void drawDropRight(SpriteBatch SB, ContentManager CM, int x, int y) //draws the drop on the left of the tile (The little darkish line to show the next tile up is lowered)
         {
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(((x + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
            new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + TileSideLengthInPixels - RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White, Functions.toRadians(90f), new Vector2(0, 0), SpriteEffects.None, 0); //the source rectangle
         }
+       
+        
+        
         protected bool shouldRenderRaised(Level level, int x, int y)
         {
             if (y >= level.MapDimensions.Y - 1)
