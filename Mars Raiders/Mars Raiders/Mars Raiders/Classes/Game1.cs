@@ -34,8 +34,8 @@ namespace Mars_Raiders
         {
             graphics = new GraphicsDeviceManager(this); //sets up graphics use
             Content.RootDirectory = "Content"; //set up location for files
-            graphics.PreferredBackBufferWidth = 1280; //horizontal resolution
-            graphics.PreferredBackBufferHeight = 720; //vertical resolution
+            graphics.PreferredBackBufferWidth = 720; //horizontal resolution
+            graphics.PreferredBackBufferHeight = 480; //vertical resolution
             graphics.IsFullScreen = false; //fullscreen mode
             graphics.ApplyChanges(); //sets graphics using above settings
             IsMouseVisible = true; //shows mouse in window
@@ -50,7 +50,7 @@ namespace Mars_Raiders
             KeyboardManager.Initialise();
             Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
-            ProgramPosition = (int)ProgramPositions.LevelCreatorInitiate;
+            ProgramPosition = (int)ProgramPositions.GameInitiate;
         }
 
         protected override void LoadContent()
@@ -79,6 +79,14 @@ namespace Mars_Raiders
                     Game1.Menu.Contents(gameTime);
                     break;
 
+                case (int)ProgramPositions.MenuDeveloperInitiate:
+                    Game1.Contents.Menu_Developer_Intitiate(Content);
+                    break;
+
+                case (int)ProgramPositions.MenuDeveloper:
+                    Game1.Menu.Contents(gameTime);
+                    break;
+                
                 case (int) ProgramPositions.LevelCreatorInitiate:
                     Contents.Level_Creator_Initiate(Content);
                     ProgramPosition = (int)ProgramPositions.LevelCreator;
@@ -95,7 +103,7 @@ namespace Mars_Raiders
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.White);
+            GraphicsDevice.Clear(Color.Orange);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
         
             switch (ProgramPosition)

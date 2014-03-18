@@ -63,7 +63,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Graphics\Menu Item.png">
+    <Compile Include="Graphics\Menu Item\Menu Item.png">
       <Name>Menu Item</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
