@@ -13,9 +13,27 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Mars_Raiders
 {
-    class Control
+   public  class Control
     {
-        public static Keys Key;
-        public static int Delay;
+        public Keys Key;
+        public int Delay;
+        private int LastPressed;
+
+        public Control(Keys k, int delay)
+        {
+            Key = k;
+            Delay = delay;
+        }
+
+        public bool Press(GameTime time)
+        {
+            if (time.TotalGameTime.Milliseconds - LastPressed >= Delay & Keyboard.GetState().IsKeyDown(Key))
+            {
+                LastPressed = time.TotalGameTime.Milliseconds;
+                return true;
+            }
+          
+                return false;   
+        }
     }
 }

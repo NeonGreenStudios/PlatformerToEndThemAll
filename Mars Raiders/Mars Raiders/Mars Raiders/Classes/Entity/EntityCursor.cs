@@ -33,36 +33,44 @@ namespace Mars_Raiders
             this.x = (int)(MousePosition.X / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
             this.y = (int)(MousePosition.Y / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
             
-            if (ks.IsKeyDown(Keys.Space))
+            if (KeyboardManager.isControlDown(Controls.SPACE, gt))
             {
                 level.Map[x, y].Raised = !level.Map[x, y].Raised;
                 lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (ks.IsKeyDown(Keys.Z))
+            if (KeyboardManager.isControlDown(Controls.ZOOMOUT, gt))
             {
                 Game1.Zoom -= 0.1f;
                 lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (ks.IsKeyDown(Keys.X))
+            if (KeyboardManager.isControlDown(Controls.ZOOMIN, gt))
             {
                 Game1.Zoom += 0.1f;
                 lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (ks.IsKeyDown(Keys.D1))
+            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK1, gt))
             {
                 level.Map[x, y] = new TileStone();
             }
 
-            if (ks.IsKeyDown(Keys.D2))
+            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK2, gt))
+            {
+                level.Map[x, y] = new TileStone();
+            }
+            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK3, gt))
+            {
+                level.Map[x, y] = new TileWater();
+            }
+            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK4, gt))
             {
                 level.Map[x, y] = new TileSand();
             }
 
-            if (ks.IsKeyDown(Keys.S))
+            if (KeyboardManager.isControlDown(Controls.SAVE, gt))
             {
              level.save();
             }
-            if (ks.IsKeyDown(Keys.L))
+            if (KeyboardManager.isControlDown(Controls.LOAD, gt))
             {
               level.load();
             }

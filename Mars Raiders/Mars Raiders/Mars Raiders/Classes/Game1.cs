@@ -47,7 +47,7 @@ namespace Mars_Raiders
             base.Initialize();
             appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
             Process.Start(appdata.ApplicationFolderPath);
-            
+            KeyboardManager.Initialise();
             Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
             ProgramPosition = (int)ProgramPositions.LevelCreatorInitiate;
