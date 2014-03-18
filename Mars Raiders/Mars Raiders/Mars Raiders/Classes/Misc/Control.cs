@@ -16,23 +16,22 @@ namespace Mars_Raiders
    public  class Control
     {
         public Keys Key;
-        public int Delay;
-        private int LastPressed;
+        public double Delay;
+        private double LastPressed;
 
         public Control(Keys k, int delay)
         {
             Key = k;
             Delay = delay;
         }
-
+   
         public bool Press(GameTime time)
         {
-            if (time.TotalGameTime.Milliseconds - LastPressed >= Delay & Keyboard.GetState().IsKeyDown(Key))
+            if (time.TotalGameTime.TotalMilliseconds - LastPressed >= Delay & Keyboard.GetState().IsKeyDown(Key))
             {
                 LastPressed = time.TotalGameTime.Milliseconds;
                 return true;
             }
-          
                 return false;   
         }
     }
