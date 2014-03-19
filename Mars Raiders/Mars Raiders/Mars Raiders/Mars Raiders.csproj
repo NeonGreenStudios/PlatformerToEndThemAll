@@ -110,8 +110,8 @@
     <Compile Include="Classes\Contents.cs" />
     <Compile Include="Classes\Entity\Entity.cs" />
     <Compile Include="Classes\Entity\EntityCursor.cs" />
-    <Compile Include="Classes\Misc\EnumControls.cs" />
-    <Compile Include="Classes\Misc\Control.cs" />
+    <Compile Include="Classes\InputManager\Action.cs" />
+    <Compile Include="Classes\InputManager\InputManager.cs" />
     <Compile Include="Classes\Misc\Function.cs" />
     <Compile Include="Classes\IO\CommonAppData.cs" />
     <Compile Include="Classes\Level\TileSand.cs" />
@@ -121,7 +121,6 @@
     <Compile Include="Classes\Level\TileGrass.cs" />
     <Compile Include="Classes\Menu\Menu Items.cs" />
     <Compile Include="Classes\Menu\Menu System.cs" />
-    <Compile Include="Classes\Misc\KeyboardManager.cs" />
     <Compile Include="Classes\ProgramPosition.cs" />
     <Compile Include="Classes\Level\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

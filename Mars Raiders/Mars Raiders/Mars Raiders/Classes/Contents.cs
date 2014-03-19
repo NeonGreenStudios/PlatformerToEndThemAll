@@ -20,7 +20,6 @@ namespace Mars_Raiders
         public void Game_Initiate() //This does the prior to game launch settings. Empty at the moment but hopefully not soon!
         {
             Game1.ProgramPosition = (int)ProgramPositions.MenuStartInitiate;
-            KeyboardManager.Initialise();
         }
 
         public void Start_Menu_Initiate(ContentManager Content)

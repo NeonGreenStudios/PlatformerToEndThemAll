@@ -71,7 +71,7 @@ namespace Mars_Raiders
         private void Click()
         {
             Boolean Click;
-            Click = Functions.MouseLeftClick();
+            Click = Game1.IM.MouseLeftClick();
             if (Click == true)
             {
                 for (int I = 0; I <= MenuItems.Count - 1; I++)

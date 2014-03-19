@@ -13,7 +13,6 @@ namespace Mars_Raiders
 {
     public class EntityCursor : Entity
     {
-        int lastPressedTime;
 
         public EntityCursor()
             : base()
@@ -32,45 +31,29 @@ namespace Mars_Raiders
 
             this.x = (int)(MousePosition.X / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
             this.y = (int)(MousePosition.Y / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
-            
-            if (KeyboardManager.isControlDown(Controls.SPACE, gt))
+
+            if (Game1.IM["Raise"].IsTapped)
             {
                 level.Map[x, y].Raised = !level.Map[x, y].Raised;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (KeyboardManager.isControlDown(Controls.ZOOMOUT, gt))
+            if (Game1.IM["ZoomOut"].IsTapped)
             {
                 Game1.Zoom -= 0.1f;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (KeyboardManager.isControlDown(Controls.ZOOMIN, gt))
+            if (Game1.IM["ZoomIn"].IsTapped)
             {
                 Game1.Zoom += 0.1f;
-                lastPressedTime = gt.ElapsedGameTime.Milliseconds;
             }
-            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK1, gt))
+            if (Game1.IM["PlaceBlock1"].IsTapped)
             {
                 level.Map[x, y] = new TileStone();
             }
 
-            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK2, gt))
-            {
-                level.Map[x, y] = new TileStone();
-            }
-            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK3, gt))
-            {
-                level.Map[x, y] = new TileWater();
-            }
-            if (KeyboardManager.isControlDown(Controls.PLACEBLOCK4, gt))
-            {
-                level.Map[x, y] = new TileSand();
-            }
-
-            if (KeyboardManager.isControlDown(Controls.SAVE, gt))
+            if (Game1.IM["Save"].IsTapped)
             {
              level.save();
             }
-            if (KeyboardManager.isControlDown(Controls.LOAD, gt))
+            if (Game1.IM["Load"].IsTapped)
             {
               level.load();
             }

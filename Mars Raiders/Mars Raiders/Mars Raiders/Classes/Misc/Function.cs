@@ -24,29 +24,10 @@ namespace Mars_Raiders
             return new Vector2(ms.X, ms.Y);
         }
 
-        public static Boolean MouseLeftClick()
-        {
-            ms = Mouse.GetState();
-            if (ms.LeftButton == ButtonState.Pressed)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public static Boolean CollisionChecker(Rectangle RecA, Rectangle RecB)
         {
-            if (RecA.Intersects(RecB))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return RecA.Intersects(RecB);
         }
 
         public static float toRadians(float angle)

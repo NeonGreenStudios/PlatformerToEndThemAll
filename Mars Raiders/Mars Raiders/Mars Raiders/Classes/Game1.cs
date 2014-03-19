@@ -24,6 +24,7 @@ namespace Mars_Raiders
         public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu handling
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;
+        public static InputManager IM = new InputManager();
 
         public static CommonApplicationData appdata;
 
@@ -47,7 +48,20 @@ namespace Mars_Raiders
             base.Initialize();
             appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
             Process.Start(appdata.ApplicationFolderPath);
-            KeyboardManager.Initialise();
+            IM.AddAction("Raise");
+            IM["Raise"].Add(Keys.Space);
+            IM.AddAction("Load");
+            IM["Load"].Add(Keys.L);
+            IM.AddAction("Save");
+            IM["Save"].Add(Keys.S);
+            IM.AddAction("ZoomIn");
+            IM["ZoomIn"].Add(Keys.Z);
+            IM.AddAction("ZoomOut");
+            IM["ZoomOut"].Add(Keys.O);
+            IM.AddAction("PlaceBlock1");
+            IM["PlaceBlock1"].Add(Keys.D1);
+
+
             Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
             ProgramPosition = (int)ProgramPositions.GameInitiate;
@@ -65,6 +79,7 @@ namespace Mars_Raiders
 
         protected override void Update(GameTime gameTime)
         {
+            IM.Update();
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.GameInitiate:
