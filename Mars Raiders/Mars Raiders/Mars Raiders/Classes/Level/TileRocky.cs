@@ -13,18 +13,18 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Mars_Raiders
 {
-    public class TileGrass : Tile
+    public class TileRocky : Tile
     {
 
 
-        public TileGrass() : base()
+        public TileRocky() : base()
         {
 
         }
         protected override void define()
         {
-            TextureLocation = new Vector2(0, 0);     //change txture location here
-            ID = 0;
+            TextureLocation = new Vector2(1, 1);     //change txture location here
+            ID = 3;
         }
         public override void update(GameTime gt)
         {

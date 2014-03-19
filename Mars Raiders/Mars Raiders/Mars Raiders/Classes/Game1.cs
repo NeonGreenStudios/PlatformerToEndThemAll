@@ -46,8 +46,10 @@ namespace Mars_Raiders
         protected override void Initialize()
         {
             base.Initialize();
-            appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
-            Process.Start(appdata.ApplicationFolderPath);
+           // appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
+           // Process.Start(appdata.ApplicationFolderPath);
+            IM.AddAction("Pause");
+            IM["Pause"].Add(Keys.Escape);
             IM.AddAction("Raise");
             IM["Raise"].Add(Keys.Space);
             IM.AddAction("Load");
@@ -57,10 +59,19 @@ namespace Mars_Raiders
             IM.AddAction("ZoomIn");
             IM["ZoomIn"].Add(Keys.Z);
             IM.AddAction("ZoomOut");
-            IM["ZoomOut"].Add(Keys.O);
+            IM["ZoomOut"].Add(Keys.X);
+
             IM.AddAction("PlaceBlock1");
             IM["PlaceBlock1"].Add(Keys.D1);
 
+            IM.AddAction("PlaceBlock2");
+            IM["PlaceBlock2"].Add(Keys.D2);
+
+            IM.AddAction("PlaceBlock3");
+            IM["PlaceBlock3"].Add(Keys.D3);
+
+            IM.AddAction("PlaceBlock4");
+            IM["PlaceBlock4"].Add(Keys.D4);
 
             Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");

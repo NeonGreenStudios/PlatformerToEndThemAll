@@ -23,7 +23,7 @@ namespace Mars_Raiders
         }
         protected override void define()
         {
-            TextureLocation = new Vector2(1, 0);     //change txture location here
+            TextureLocation = new Vector2(0, 1);     //change txture location here
             ID = 2;
         }
         public override void update(GameTime gt)

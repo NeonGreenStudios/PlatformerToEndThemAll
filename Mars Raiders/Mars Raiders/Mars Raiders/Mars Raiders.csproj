@@ -114,11 +114,11 @@
     <Compile Include="Classes\InputManager\InputManager.cs" />
     <Compile Include="Classes\Misc\Function.cs" />
     <Compile Include="Classes\IO\CommonAppData.cs" />
-    <Compile Include="Classes\Level\TileSand.cs" />
-    <Compile Include="Classes\Level\TileWater.cs" />
+    <Compile Include="Classes\Level\TileGritIce.cs" />
+    <Compile Include="Classes\Level\TileRocky.cs" />
     <Compile Include="Classes\Level\TileStone.cs" />
     <Compile Include="Classes\Level\Level.cs" />
-    <Compile Include="Classes\Level\TileGrass.cs" />
+    <Compile Include="Classes\Level\TileIce.cs" />
     <Compile Include="Classes\Menu\Menu Items.cs" />
     <Compile Include="Classes\Menu\Menu System.cs" />
     <Compile Include="Classes\ProgramPosition.cs" />

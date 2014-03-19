@@ -21,7 +21,8 @@ namespace Mars_Raiders
         public Tile[,] Map;
         public Vector2 MapDimensions = new Vector2 (100,100);
         public EntityCursor Player = new EntityCursor();
-
+        public bool Paused;
+        public bool FirstTickPaused;
        
         public void generate()
         {
@@ -30,7 +31,7 @@ namespace Mars_Raiders
             {
                 for (int x = 0; x < (int)MapDimensions.X; x++)
                 {
-                    Map[x,y] = new TileGrass();
+                    Map[x,y] = new TileIce();
                 }
             }
 
@@ -46,7 +47,7 @@ namespace Mars_Raiders
             }
             for (int x = 3; x < 8; x++)
             {
-                Map[x, 7] = new TileWater();
+                Map[x, 7] = new TileStone();
             }
             
         }
@@ -61,6 +62,10 @@ namespace Mars_Raiders
                 }
             }
             Player.render(SB, C);
+            if (this.Paused)
+            {
+
+            }
 
         }
 
@@ -109,16 +114,16 @@ namespace Mars_Raiders
                 switch (Data[0])
                 {
                     case "0":
-                        Map[X, Y] = new TileGrass();
+                        Map[X, Y] = new TileIce();
                         break;
                     case "1":
-                        Map[X, Y] = new TileSand();
+                        Map[X, Y] = new TileGritIce();
                         break;
                     case "2":
                         Map[X, Y] = new TileStone();
                         break;
                     case "3":
-                        Map[X, Y] = new TileWater();
+                        Map[X, Y] = new TileRocky();
                         break;
                 }
                 Map[X, Y].Raised = Convert.ToBoolean(Data[1]);
