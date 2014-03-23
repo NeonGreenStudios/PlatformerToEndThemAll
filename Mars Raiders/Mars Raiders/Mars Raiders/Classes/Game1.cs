@@ -40,14 +40,14 @@ namespace Mars_Raiders
             graphics.IsFullScreen = false; //fullscreen mode
             graphics.ApplyChanges(); //sets graphics using above settings
             IsMouseVisible = true; //shows mouse in window
-            this.Window.Title = "Mars Raiders"; //window title
+            this.Window.Title = "Europa"; //window title
         }
         
         protected override void Initialize()
         {
             base.Initialize();
-           // appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
-           // Process.Start(appdata.ApplicationFolderPath);
+            appdata = new CommonApplicationData("NeonGreenStudios", "MarsRaiders");
+            Process.Start(appdata.ApplicationFolderPath);
             IM.AddAction("Pause");
             IM["Pause"].Add(Keys.Escape);
             IM.AddAction("Raise");
@@ -129,7 +129,7 @@ namespace Mars_Raiders
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Orange);
+            GraphicsDevice.Clear(Color.GhostWhite);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
         
             switch (ProgramPosition)

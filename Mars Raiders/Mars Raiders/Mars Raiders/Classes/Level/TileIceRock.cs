@@ -13,11 +13,11 @@ using Microsoft.Xna.Framework.Storage;
 
 namespace Mars_Raiders
 {
-    public class TileRocky : Tile
+    public class TileIceRock : Tile
     {
 
 
-        public TileRocky() : base()
+        public TileIceRock() : base()
         {
 
         }

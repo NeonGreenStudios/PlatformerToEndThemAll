@@ -57,7 +57,7 @@ namespace Mars_Raiders
                 }
                 if (Game1.IM["PlaceBlock2"].IsTapped)
                 {
-                    level.Map[x, y] = new TileRocky();
+                    level.Map[x, y] = new TileIceRock();
                 }
                 if (Game1.IM["PlaceBlock3"].IsTapped)
                 {
@@ -69,11 +69,11 @@ namespace Mars_Raiders
                 }
                 if (Game1.IM["Save"].IsTapped)
                 {
-                   // level.save();    Just so it will run in school
+                    level.save();  
                 }
                 if (Game1.IM["Load"].IsTapped)
                 {
-                   // level.load();
+                    level.load();
                 }
 
             }

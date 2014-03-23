@@ -31,9 +31,23 @@ namespace Mars_Raiders
             {
                 for (int x = 0; x < (int)MapDimensions.X; x++)
                 {
-                    Map[x,y] = new TileIce();
+                    Map[x,y] = new TileIceRock();
                 }
             }
+            for (int y = 0; y < (int)MapDimensions.Y; y++)
+            {                   
+                for (double x = 0; x < (int)MapDimensions.X; x++)
+                {
+                    if (y < (Math.Cos((x / 20) - 10)) * 100)
+                    {
+                        Map[(int)Math.Round(x), y] = new TileStone();
+                    }
+                    
+                }
+            }
+                
+                
+            
 
             for (int x = 1; x < 9; x++)
             {
@@ -123,7 +137,7 @@ namespace Mars_Raiders
                         Map[X, Y] = new TileStone();
                         break;
                     case "3":
-                        Map[X, Y] = new TileRocky();
+                        Map[X, Y] = new TileIceRock();
                         break;
                 }
                 Map[X, Y].Raised = Convert.ToBoolean(Data[1]);
