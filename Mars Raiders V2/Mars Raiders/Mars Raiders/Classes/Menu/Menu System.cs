@@ -14,6 +14,7 @@ namespace Mars_Raiders
 {
     public class Menu_System
     {
+
         public Double VoidClick, LastVoidClick;
         public List<Menu_Items> MenuItems = new List<Menu_Items>();
 
@@ -83,11 +84,11 @@ namespace Mars_Raiders
             }
         }
 
-        public void Draw(SpriteBatch SB, ContentManager CM)
+        public void Draw(SpriteBatch SB)
         {
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                MenuItems[I].Draw(SB, CM);
+                MenuItems[I].Draw(SB);
             }
         }
 

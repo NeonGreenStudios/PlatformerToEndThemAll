@@ -63,6 +63,13 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Graphics\Menu Item\Menu Item.png">
+      <Name>Menu Item</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Graphics\TileSheet\EntityFrames.png">
       <Name>EntityFrames</Name>
       <Importer>TextureImporter</Importer>
@@ -84,23 +91,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="Graphics\HudTest.png">
       <Name>HudTest</Name>
-=======
-    <Compile Include="Graphics\Menu Item\Sprite Sheet.png">
-      <Name>Sprite Sheet</Name>
->>>>>>> Awesome Menu Shizzle
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-<<<<<<< HEAD
   <ItemGroup>
     <Folder Include="Graphics\NewFolder1\" />
   </ItemGroup>
-=======
->>>>>>> Awesome Menu Shizzle
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
