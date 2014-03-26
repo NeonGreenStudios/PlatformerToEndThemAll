@@ -32,7 +32,7 @@ namespace Mars_Raiders
         private void Collision()
         {
             Vector2 Temp;
-            Int16 X, Y;
+            Int32 X, Y;
             Temp = Functions.GetMouseCoords();
             X = Convert.ToInt16(Temp.X);
             Y = Convert.ToInt16(Temp.Y);
