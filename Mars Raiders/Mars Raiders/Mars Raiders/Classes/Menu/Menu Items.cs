@@ -14,6 +14,7 @@ namespace Mars_Raiders
 {
     public class Menu_Items
     {
+        public Vector2 SourceRectange;
         public Rectangle HitBox; //Stores the hit box texture
         public String Properties, Name; //The name of the position on the file//The information that pops up on the pop up display
         public Boolean Selected, PropertiesDisplay;//Whether the mouse is hovered over the RECTANGLE or not// Whether the pop up display is displaying or not

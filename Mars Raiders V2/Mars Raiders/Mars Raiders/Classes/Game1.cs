@@ -131,13 +131,13 @@ namespace Mars_Raiders
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.GhostWhite);
+            GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
         
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.MenuStart:
-                    Menu.Draw(spriteBatch);
+                    Menu.Draw(spriteBatch, Content);
                     break;
                 case (int)ProgramPositions.LevelCreator:
                     Game1.Level.Draw(spriteBatch, Content);

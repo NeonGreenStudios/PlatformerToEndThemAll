@@ -14,7 +14,6 @@ namespace Mars_Raiders
 {
     public class Menu_System
     {
-
         public Double VoidClick, LastVoidClick;
         public List<Menu_Items> MenuItems = new List<Menu_Items>();
 
@@ -22,6 +21,7 @@ namespace Mars_Raiders
         {
             VoidClick = GT.TotalGameTime.TotalMilliseconds;
             Collision();
+            Frozen_Textures(GT);
             PopUp_Display(GT);
             if (VoidClick - LastVoidClick >= 500)
             {
@@ -41,7 +41,34 @@ namespace Mars_Raiders
                 MenuItems[I].Selected = Functions.CollisionChecker(MenuItems[I].Shape, new Rectangle(X, Y, 1, 1));
             }
         }
-
+        private void Frozen_Textures(GameTime GT)
+        {
+            for (int I = 0; I <= MenuItems.Count - 1; I++)
+            {
+                if (MenuItems[I].Selected == true)
+                {
+                    MenuItems[I].TimeSelected = GT.TotalGameTime.TotalMilliseconds;
+                }
+                else
+                {
+                    MenuItems[I].TimeSelected = GT.TotalGameTime.TotalMilliseconds;
+                    MenuItems[I].FirstSelected = GT.TotalGameTime.TotalMilliseconds;
+                }
+                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 50 & MenuItems[I].TimeSelected - MenuItems[I].FirstSelected <= 125)
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(135,0);
+                }
+                else if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 125)
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(0,135);
+                }
+                else
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(0, 0);
+                    MenuItems[I].TimeSelected = MenuItems[I].FirstSelected;
+                }
+            }
+        }
         private void PopUp_Display(GameTime GT)
         {
 
@@ -84,11 +111,11 @@ namespace Mars_Raiders
             }
         }
 
-        public void Draw(SpriteBatch SB)
+        public void Draw(SpriteBatch SB, ContentManager CM)
         {
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
-                MenuItems[I].Draw(SB);
+                MenuItems[I].Draw(SB, CM);
             }
         }
 

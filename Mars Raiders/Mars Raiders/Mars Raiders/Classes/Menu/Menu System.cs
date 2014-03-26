@@ -40,7 +40,34 @@ namespace Mars_Raiders
                 MenuItems[I].Selected = Functions.CollisionChecker(MenuItems[I].Shape, new Rectangle(X, Y, 1, 1));
             }
         }
-
+        private void Frozen_Textures(GameTime GT)
+        {
+            for (int I = 0; I <= MenuItems.Count - 1; I++)
+            {
+                if (MenuItems[I].Selected == true)
+                {
+                    MenuItems[I].TimeSelected = GT.TotalGameTime.TotalMilliseconds;
+                }
+                else
+                {
+                    MenuItems[I].TimeSelected = GT.TotalGameTime.TotalMilliseconds;
+                    MenuItems[I].FirstSelected = GT.TotalGameTime.TotalMilliseconds;
+                }
+                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 50 & MenuItems[I].TimeSelected - MenuItems[I].FirstSelected <= 150)
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(135, 0);
+                }
+                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 150)
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(0, 135);
+                }
+                else
+                {
+                    MenuItems[I].SourceRectangle = new Vector2(0, 0);
+                    MenuItems[I].TimeSelected = MenuItems[I].FirstSelected;
+                }
+            }
+        }
         private void PopUp_Display(GameTime GT)
         {
 
