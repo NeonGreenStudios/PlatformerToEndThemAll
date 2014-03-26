@@ -21,8 +21,10 @@ namespace Mars_Raiders
         public Tile[,] Map;
         public Vector2 MapDimensions = new Vector2 (100,100);
         public EntityCursor Player = new EntityCursor();
+        private HUD hud = new HUD();
         public bool Paused;
         public bool FirstTickPaused;
+        public const int XOffset = 32, YOffset = 32;
        
         public void generate()
         {
@@ -76,6 +78,7 @@ namespace Mars_Raiders
                 }
             }
             Player.render(SB, C);
+            hud.draw(SB,C);
             if (this.Paused)
             {
 

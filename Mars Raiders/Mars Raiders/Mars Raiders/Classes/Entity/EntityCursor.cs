@@ -32,8 +32,8 @@ namespace Mars_Raiders
 
             if (!level.Paused)
             {
-                this.x = (int)(MousePosition.X / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
-                this.y = (int)(MousePosition.Y / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
+                this.x = (int)((MousePosition.X - Level.XOffset) / Tile.TileSideLengthInPixels / Game1.Scale);
+                this.y = (int)((MousePosition.Y - Level.YOffset) / Tile.TileSideLengthInPixels / Game1.Scale);
 
                  if (Game1.IM["Pause"].IsTapped)
                 {

@@ -110,6 +110,7 @@
     <Compile Include="Classes\Contents.cs" />
     <Compile Include="Classes\Entity\Entity.cs" />
     <Compile Include="Classes\Entity\EntityCursor.cs" />
+    <Compile Include="Classes\Entity\HUD.cs" />
     <Compile Include="Classes\InputManager\Action.cs" />
     <Compile Include="Classes\InputManager\InputManager.cs" />
     <Compile Include="Classes\Misc\Function.cs" />

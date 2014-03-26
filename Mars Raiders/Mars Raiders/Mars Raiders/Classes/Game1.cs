@@ -16,6 +16,8 @@ namespace Mars_Raiders
 
     public class Game1 : Microsoft.Xna.Framework.Game
     {
+
+        public static Vector2 ScreenSize = new Vector2(720, 480);
         GraphicsDeviceManager graphics;
         public static float Scale = 1f; // This is the VARIABLE that stores the SCALE for everything in the program
         public static float Zoom = 1; // This is the VARIABLE that stores the ZOOM for the level
@@ -35,8 +37,8 @@ namespace Mars_Raiders
         {
             graphics = new GraphicsDeviceManager(this); //sets up graphics use
             Content.RootDirectory = "Content"; //set up location for files
-            graphics.PreferredBackBufferWidth = 720; //horizontal resolution
-            graphics.PreferredBackBufferHeight = 480; //vertical resolution
+            graphics.PreferredBackBufferWidth = (int)ScreenSize.X; //horizontal resolution
+            graphics.PreferredBackBufferHeight = (int)ScreenSize.Y; //vertical resolution
             graphics.IsFullScreen = false; //fullscreen mode
             graphics.ApplyChanges(); //sets graphics using above settings
             IsMouseVisible = true; //shows mouse in window
