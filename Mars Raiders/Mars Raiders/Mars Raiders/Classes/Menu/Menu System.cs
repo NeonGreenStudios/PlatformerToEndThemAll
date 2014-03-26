@@ -21,6 +21,7 @@ namespace Mars_Raiders
         {
             VoidClick = GT.TotalGameTime.TotalMilliseconds;
             Collision();
+            Frozen_Textures(GT);
             PopUp_Display(GT);
             if (VoidClick - LastVoidClick >= 500)
             {
@@ -31,7 +32,7 @@ namespace Mars_Raiders
         private void Collision()
         {
             Vector2 Temp;
-            Int16 X, Y;
+            Int32 X, Y;
             Temp = Functions.GetMouseCoords();
             X = Convert.ToInt16(Temp.X);
             Y = Convert.ToInt16(Temp.Y);
@@ -53,13 +54,13 @@ namespace Mars_Raiders
                     MenuItems[I].TimeSelected = GT.TotalGameTime.TotalMilliseconds;
                     MenuItems[I].FirstSelected = GT.TotalGameTime.TotalMilliseconds;
                 }
-                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 50 & MenuItems[I].TimeSelected - MenuItems[I].FirstSelected <= 150)
+                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 50 & MenuItems[I].TimeSelected - MenuItems[I].FirstSelected <= 125)
                 {
-                    MenuItems[I].SourceRectangle = new Vector2(135, 0);
+                    MenuItems[I].SourceRectangle = new Vector2(135,0);
                 }
-                if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 150)
+                else if (MenuItems[I].TimeSelected - MenuItems[I].FirstSelected >= 125)
                 {
-                    MenuItems[I].SourceRectangle = new Vector2(0, 135);
+                    MenuItems[I].SourceRectangle = new Vector2(0,135);
                 }
                 else
                 {

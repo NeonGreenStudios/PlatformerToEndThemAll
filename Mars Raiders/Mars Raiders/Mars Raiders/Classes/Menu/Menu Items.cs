@@ -14,7 +14,7 @@ namespace Mars_Raiders
 {
     public class Menu_Items
     {
-        public Vector2 SourceRectange;
+        public Vector2 SourceRectangle;
         public Rectangle HitBox; //Stores the hit box texture
         public String Properties, Name; //The name of the position on the file//The information that pops up on the pop up display
         public Boolean Selected, PropertiesDisplay;//Whether the mouse is hovered over the RECTANGLE or not// Whether the pop up display is displaying or not
@@ -40,25 +40,15 @@ namespace Mars_Raiders
 
         public void Draw(SpriteBatch spriteBatch, ContentManager CM)
         {
-            if (Selected == false)
-            {
-                
-                spriteBatch.Draw(CM.Load<Texture2D>("Graphics/Menu Item/Sprite Sheet"), HitBox, new Rectangle(0, 0,HitBox.Height,HitBox.Width), Color.White);
-                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset + HitBox.Width, YOffset + ((YGap + HitBox.Height) * this.ItemNumber) - HitBox.Height), Color.White, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
-             
-            }
-            else
-            {
-                spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset + HitBox.Width, YOffset + ((YGap + HitBox.Height) * this.ItemNumber) - HitBox.Height), Color.Red, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
-                spriteBatch.Draw(CM.Load<Texture2D>("Graphics/Menu Item/Sprite Sheet"), HitBox, new Rectangle(0, 0, HitBox.X, HitBox.Y), Color.White);
-            }
+            spriteBatch.Draw(CM.Load<Texture2D>("Graphics/Menu Item/Sprite Sheet"), Shape, new Rectangle(Convert.ToInt16(this.SourceRectangle.X), Convert.ToInt16(this.SourceRectangle.Y), HitBox.Height, HitBox.Width), Color.White);
+            spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset + HitBox.Width, YOffset + ((YGap + HitBox.Height) * this.ItemNumber) - HitBox.Height), Color.White, 0.0f, new Vector2(0, 0), Game1.Scale, SpriteEffects.None, 0.0f);
             if (PropertiesDisplay == true)
             {
-                Vector2 Temp = new Vector2(0,0);
+                Vector2 Temp = new Vector2(0, 0);
                 Temp = Functions.GetMouseCoords();
                 Temp.Y -= 45;
                 spriteBatch.DrawString(Game1.Background, this.Properties, Temp, Color.Black, 0.0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
-                spriteBatch.DrawString(Game1.Andy, this.Properties, Temp, Color.White,0.0f,new Vector2(0,0),0.5f,SpriteEffects.None,0);
+                spriteBatch.DrawString(Game1.Andy, this.Properties, Temp, Color.White, 0.0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
             }
         }
 
