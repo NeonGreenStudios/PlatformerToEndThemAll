@@ -12,10 +12,10 @@ using Microsoft.Xna.Framework.Media;
 
 namespace Mars_Raiders
 {
-    public class Menu_System
+    public class Menu
     {
         public Double VoidClick, LastVoidClick;
-        public List<Menu_Items> MenuItems = new List<Menu_Items>();
+        public List<Menu_Item> MenuItems = new List<Menu_Item>();
 
         public void Contents(GameTime GT)
         {
@@ -113,6 +113,8 @@ namespace Mars_Raiders
 
         public void Draw(SpriteBatch SB, ContentManager CM)
         {
+
+            SB.Draw(CM.Load<Texture2D>("Graphics/MainMenuBackGround"), new Rectangle(0, 0, (int)Game1.ScreenSize.X , (int)Game1.ScreenSize.Y), Color.White);
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
                 MenuItems[I].Draw(SB, CM);

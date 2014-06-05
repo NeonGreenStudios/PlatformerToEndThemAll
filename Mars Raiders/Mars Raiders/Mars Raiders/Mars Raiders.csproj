@@ -120,8 +120,8 @@
     <Compile Include="Classes\Level\TileStone.cs" />
     <Compile Include="Classes\Level\Level.cs" />
     <Compile Include="Classes\Level\TileIce.cs" />
-    <Compile Include="Classes\Menu\Menu Items.cs" />
-    <Compile Include="Classes\Menu\Menu System.cs" />
+    <Compile Include="Classes\Menu\Menu Item.cs" />
+    <Compile Include="Classes\Menu\Menu.cs" />
     <Compile Include="Classes\ProgramPosition.cs" />
     <Compile Include="Classes\Level\Tile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

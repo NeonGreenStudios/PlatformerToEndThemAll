@@ -17,17 +17,17 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
 
-        public static Vector2 ScreenSize = new Vector2(1920,1080);
+        public static Vector2 ScreenSize = new Vector2(720,480);
         GraphicsDeviceManager graphics;
         public static float Scale = 1f; // This is the VARIABLE that stores the SCALE for everything in the program
         public static float Zoom = 1; // This is the VARIABLE that stores the ZOOM for the level
         public static SpriteFont Background;
         public static SpriteFont Andy; // This is the ANDY font VARIABLE
-        public static Menu_System Menu = new Menu_System(); // This is the CLASS that does all the menu handling
+        public static Menu Menu = new Menu(); // This is the CLASS that does all the menu handling
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;
         public static InputManager IM = new InputManager();
-
+        public static bool InGameMouseVisible;
         public static CommonApplicationData appdata;
 
         public static Level Level = new Level ();
@@ -39,7 +39,7 @@ namespace Mars_Raiders
             Content.RootDirectory = "Content"; //set up location for files
             graphics.PreferredBackBufferWidth = (int)ScreenSize.X; //horizontal resolution
             graphics.PreferredBackBufferHeight = (int)ScreenSize.Y; //vertical resolution
-            graphics.IsFullScreen = true; //fullscreen mode
+            graphics.IsFullScreen = false; //fullscreen mode
             graphics.ApplyChanges(); //sets graphics using above settings
             IsMouseVisible = true; //shows mouse in window
             this.Window.Title = "Europa"; //window title
@@ -133,6 +133,7 @@ namespace Mars_Raiders
             GraphicsDevice.Clear(Color.Black);
             spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
         
+
             switch (ProgramPosition)
             {
                 case (int)ProgramPositions.MenuStart:
