@@ -17,7 +17,7 @@ namespace Mars_Raiders
     public class Game1 : Microsoft.Xna.Framework.Game
     {
 
-        public static Vector2 ScreenSize = new Vector2(720,480);
+        public static Vector2 ScreenSize = new Vector2(1280,720);
         GraphicsDeviceManager graphics;
         public static float Scale = 1f; // This is the VARIABLE that stores the SCALE for everything in the program
         public static float Zoom = 1; // This is the VARIABLE that stores the ZOOM for the level
