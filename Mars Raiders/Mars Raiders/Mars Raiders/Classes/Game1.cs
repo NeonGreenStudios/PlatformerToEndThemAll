@@ -39,7 +39,7 @@ namespace Mars_Raiders
             Content.RootDirectory = "Content"; //set up location for files
             graphics.PreferredBackBufferWidth = (int)ScreenSize.X; //horizontal resolution
             graphics.PreferredBackBufferHeight = (int)ScreenSize.Y; //vertical resolution
-            graphics.IsFullScreen = true; //fullscreen mode
+            graphics.IsFullScreen = false; //fullscreen mode
             graphics.ApplyChanges(); //sets graphics using above settings
             IsMouseVisible = true; //shows mouse in window
             this.Window.Title = "Europa"; //window title
