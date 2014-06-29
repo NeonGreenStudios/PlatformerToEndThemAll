@@ -16,6 +16,12 @@ namespace Mars_Raiders
     {
         public Double VoidClick, LastVoidClick;
         public List<Menu_Item> MenuItems = new List<Menu_Item>();
+        private Texture2D BG;
+
+        public Menu(Texture2D Background)
+        {
+            BG = Background;
+        }
 
         public void Contents(GameTime GT)
         {
@@ -114,7 +120,8 @@ namespace Mars_Raiders
         public void Draw(SpriteBatch SB, ContentManager CM)
         {
 
-            SB.Draw(CM.Load<Texture2D>("Graphics/MainMenuBackGround"), new Rectangle(0, 0, (int)Game1.ScreenSize.X , (int)Game1.ScreenSize.Y), Color.White);
+           // CM.Load<Texture2D>("Graphics/MainMenuBackGround")
+            SB.Draw(BG, new Rectangle(0, 0, (int)Game1.ScreenSize.X , (int)Game1.ScreenSize.Y), Color.White);
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
                 MenuItems[I].Draw(SB, CM);

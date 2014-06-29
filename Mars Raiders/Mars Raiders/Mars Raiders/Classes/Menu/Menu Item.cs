@@ -42,14 +42,14 @@ namespace Mars_Raiders
         public void Draw(SpriteBatch spriteBatch, ContentManager CM)
         {
             spriteBatch.Draw(CM.Load<Texture2D>("Graphics/Menu Item/Sprite Sheet"), Shape, new Rectangle(Convert.ToInt16(this.SourceRectangle.X), Convert.ToInt16(this.SourceRectangle.Y), HitBox.Width, HitBox.Height ), Color.White);
-            spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset + HitBox.Width, YOffset + ((YGap + HitBox.Height) * this.ItemNumber) - HitBox.Height), Color.White, 0.0f, new Vector2(0, 0),Scale * Game1.Scale, SpriteEffects.None, 0.0f);
+            spriteBatch.DrawString(Game1.Andy, this.Name, new Vector2(XOffset + HitBox.Width, YOffset + ((YGap + HitBox.Height) * this.ItemNumber) - HitBox.Height), Color.Green, 0.0f, new Vector2(0, 0), Scale * Game1.Scale * 2, SpriteEffects.None, 0.0f);
             if (PropertiesDisplay == true)
             {
                 Vector2 Temp = new Vector2(0, 0);
                 Temp = Functions.GetMouseCoords();
                 Temp.Y -= 45;
-                spriteBatch.DrawString(Game1.Background, this.Properties, Temp, Color.Black, 0.0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
-                spriteBatch.DrawString(Game1.Andy, this.Properties, Temp, Color.White, 0.0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
+               // spriteBatch.DrawString(Game1.Background, this.Properties, Temp, Color.Black, 0.0f, new Vector2(0, 0), 0.5f, SpriteEffects.None, 0);
+                spriteBatch.DrawString(Game1.Andy, this.Properties, Temp, Color.Green, 0.0f, new Vector2(0, 0), 1f, SpriteEffects.None, 0);
             }
         }
 

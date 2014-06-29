@@ -21,9 +21,9 @@ namespace Mars_Raiders
         GraphicsDeviceManager graphics;
         public static float Scale = 1f; // This is the VARIABLE that stores the SCALE for everything in the program
         public static float Zoom = 1; // This is the VARIABLE that stores the ZOOM for the level
-        public static SpriteFont Background;
+       // public static SpriteFont Background;
         public static SpriteFont Andy; // This is the ANDY font VARIABLE
-        public static Menu Menu = new Menu(); // This is the CLASS that does all the menu handling
+        public static Menu Menu;  // This is the CLASS that does all the menu handling
         public static Content Contents = new Content(); // This is the VARIABLE for the CONTENT CLASS
         public static int ProgramPosition;
         public static InputManager IM = new InputManager();
@@ -74,8 +74,9 @@ namespace Mars_Raiders
             IM.AddAction("PlaceBlock4");
             IM["PlaceBlock4"].Add(Keys.D4);
 
-            Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
-            Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
+         //   Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
+            Andy = Content.Load<SpriteFont>("Fonts/Europa SpriteFont");
+          //  Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
             ProgramPosition = (int)ProgramPositions.GameInitiate;
         }
 
