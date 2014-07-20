@@ -17,10 +17,12 @@ namespace Mars_Raiders
 {
     public class Level
     {
-      
+
+        public string mode; //Play for actual game, Edit for editor
         public Tile[,] Map;
         public Vector2 MapDimensions = new Vector2 (100,100);
-        public EntityCursor Player = new EntityCursor();
+        public EntityCursor Cursor = new EntityCursor();
+        public Player Player = new Player();
         private HUD hud = new HUD();
         public bool Paused;
         public bool FirstTickPaused;
@@ -77,7 +79,15 @@ namespace Mars_Raiders
                     Map[x, y].draw(SB,C,x,y,this);
                 }
             }
-            Player.render(SB, C);
+            if (mode == "Edit")
+            {
+                Cursor.render(SB, C);
+            }
+            else if (mode == "Play")
+            {
+                Player.render(SB, C);
+            }
+           
             hud.draw(SB,C);
             if (this.Paused)
             {
@@ -98,7 +108,12 @@ namespace Mars_Raiders
                     Map[x, y].update(gametime);
                 }
             }
-            Player.update(gametime,this);
+            if (mode == "Edit")
+            {
+                Cursor.update(gametime, this);
+            }else if(mode == "Play"){
+                Player.update (gametime, this);
+            }
         }
 
         public void save()

@@ -26,7 +26,7 @@ namespace Mars_Raiders
         {
             Game1.Menu = new Menu(Content.Load<Texture2D>("Graphics/MainMenuBackGround"));
             Game1.Menu.MenuItems.Clear();
-            Game1.Menu.MenuItems.Add(new Menu_Item("Play Game", "Begin the Game", 1, (int)ProgramPositions.MenuMain,1.0f,  Content));
+            Game1.Menu.MenuItems.Add(new Menu_Item("Play Game", "Begin the Game", 1, (int)ProgramPositions.PlayGameInit,1.0f,  Content));
             Game1.Menu.MenuItems.Add(new Menu_Item("Level Creator", "Create a level", 2, (int)ProgramPositions.MenuDeveloperInitiate, 1.0f,  Content));
             Game1.Menu.MenuItems.Add(new Menu_Item("Exit", "Are you sure?", 3, (int)ProgramPositions.END, 1.0f,  Content));
             Game1.ProgramPosition = (int)ProgramPositions.MenuStart;
@@ -45,6 +45,16 @@ namespace Mars_Raiders
         public void Level_Creator_Initiate(ContentManager Content)
         {
             Game1.Level.generate();
+            Game1.Level.mode = "Edit"; //sets to editor mode
+            Game1.ProgramPosition = (int)ProgramPositions.LevelCreator;
+        }
+
+        public void Play_Game_Initiate()
+        {
+            Game1.Level.generate();
+            Game1.Level.load();
+            Game1.Level.mode = "Play";
+            Game1.ProgramPosition = (int)ProgramPositions.PlayGame;
         }
 
 

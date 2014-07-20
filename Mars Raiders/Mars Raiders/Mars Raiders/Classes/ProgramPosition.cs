@@ -16,7 +16,9 @@ namespace Mars_Raiders
         MenuDeveloperInitiate = 6,
         MenuDeveloper = 7,
         LevelCreatorInitiate = 8,
-        LevelCreator = 9
+        LevelCreator = 9,
+        PlayGameInit = 10,
+        PlayGame = 11
 
     }
 }

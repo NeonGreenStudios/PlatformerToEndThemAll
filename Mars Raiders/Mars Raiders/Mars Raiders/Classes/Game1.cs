@@ -125,6 +125,14 @@ namespace Mars_Raiders
                 case (int)ProgramPositions.END:
                     this.Exit();
                     break;
+                case (int) ProgramPositions.PlayGameInit:
+                    Contents.Play_Game_Initiate();
+                    break;
+                case (int)ProgramPositions.PlayGame:
+                    Game1.Level.update(gameTime);
+                    break;
+                    
+
             }
             base.Update(gameTime);
         }
@@ -141,6 +149,9 @@ namespace Mars_Raiders
                     Menu.Draw(spriteBatch, Content);
                     break;
                 case (int)ProgramPositions.LevelCreator:
+                    Game1.Level.Draw(spriteBatch, Content);
+                    break;
+                case (int)ProgramPositions.PlayGame:
                     Game1.Level.Draw(spriteBatch, Content);
                     break;
             }

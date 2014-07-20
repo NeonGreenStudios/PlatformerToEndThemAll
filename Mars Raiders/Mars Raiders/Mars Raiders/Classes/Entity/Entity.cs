@@ -18,7 +18,8 @@ namespace Mars_Raiders
         public int x, y;
         public Boolean visible;
         public Boolean inTransition;
-        protected Vector2 TextureLocation;
+        protected Vector2 TextureLocation; //top left of the frames for the entity (0 based)
+        protected Vector2 Frame = new Vector2(); //current frame (0 based)
         const int FrameSizeInPixels = 32;
 
         public Entity()
@@ -29,7 +30,7 @@ namespace Mars_Raiders
         public void render(SpriteBatch SB, ContentManager CM)
         {
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/EntityFrames"), new Rectangle((int)(x * FrameSizeInPixels * Game1.Scale * Game1.Zoom) + Level.XOffset,(int)(y * FrameSizeInPixels * Game1.Scale * Game1.Zoom) + Level.YOffset, (int)(FrameSizeInPixels * Game1.Scale * Game1.Zoom), (int)(FrameSizeInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
-              new Rectangle((int)(TextureLocation.X * FrameSizeInPixels), (int)((TextureLocation.Y * FrameSizeInPixels)), FrameSizeInPixels, FrameSizeInPixels), Color.White); //the source rectangle
+              new Rectangle((int)(TextureLocation.X * FrameSizeInPixels * (TextureLocation.X + Frame.X)), (int)((TextureLocation.Y * FrameSizeInPixels * (TextureLocation.Y + Frame.Y))), FrameSizeInPixels, FrameSizeInPixels), Color.White); //the source rectangle
 
         }
 
