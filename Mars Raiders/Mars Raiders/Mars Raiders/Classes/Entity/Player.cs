@@ -16,7 +16,13 @@ namespace Mars_Raiders
     public class Player : Entity
     {
 
-        float FrameDelay = 1000f;
+        int direction = 0; //0 = down
+                           //1 = left
+                           //2 = right
+                           //3 = up
+        //1 = stationary, 0 and 2 = walking
+        bool stationary = true;
+        float FrameDelay = 600f;
         float elapsed;
 
           public Player()
@@ -34,12 +40,14 @@ namespace Mars_Raiders
 
         public override void update(GameTime gt, Level level)
         {
+
+            Frame.Y = direction;
             elapsed += (float)gt.ElapsedGameTime.TotalMilliseconds;
 
             if (elapsed >= FrameDelay)
             {
 
-                Frame.Y = 0;
+       
                 if (Frame.X < 2)
                 {
                     Frame.X++;
