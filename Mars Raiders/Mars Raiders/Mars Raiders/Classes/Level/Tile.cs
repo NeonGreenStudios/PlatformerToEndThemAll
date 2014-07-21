@@ -58,6 +58,7 @@ namespace Mars_Raiders
         }
         protected void drawRaised(SpriteBatch SB, ContentManager CM, int x, int y) //draws the tile if it is raised
         {
+
             SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(Level.XOffset + (x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom))), //the destination rectangle
                new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels),(int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White); //the source rectangle
         }

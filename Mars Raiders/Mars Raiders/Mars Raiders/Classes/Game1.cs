@@ -74,6 +74,18 @@ namespace Mars_Raiders
             IM.AddAction("PlaceBlock4");
             IM["PlaceBlock4"].Add(Keys.D4);
 
+            IM.AddAction("UP");
+            IM["UP"].Add(Keys.Up);
+
+            IM.AddAction("DOWN");
+            IM["DOWN"].Add(Keys.Down);
+
+            IM.AddAction("LEFT");
+            IM["LEFT"].Add(Keys.Left);
+
+            IM.AddAction("RIGHT");
+            IM["RIGHT"].Add(Keys.Right);
+
          //   Andy = Content.Load<SpriteFont>("Fonts/Andy Spritefont");
             Andy = Content.Load<SpriteFont>("Fonts/Europa SpriteFont");
           //  Background = Content.Load<SpriteFont>("Fonts/Background Spritefont");
