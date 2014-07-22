@@ -121,7 +121,7 @@ namespace Mars_Raiders
         {
 
            // CM.Load<Texture2D>("Graphics/MainMenuBackGround")
-            SB.Draw(BG, new Rectangle(0, 0, (int)Game1.ScreenSize.X , (int)Game1.ScreenSize.Y), Color.White);
+            SB.Draw(BG, new Rectangle(0, 0, (int)Game1.ScreenSize.X , (int)Game1.ScreenSize.Y), new Rectangle(0,0,BG.Width,BG.Height), Color.White,0f,new Vector2(0,0),SpriteEffects.None, 1);
             for (int I = 0; I <= MenuItems.Count - 1; I++)
             {
                 MenuItems[I].Draw(SB, CM);

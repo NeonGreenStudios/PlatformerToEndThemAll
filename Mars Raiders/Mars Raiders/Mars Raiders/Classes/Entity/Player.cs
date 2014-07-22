@@ -22,7 +22,7 @@ namespace Mars_Raiders
                            //3 = up
         //1 = stationary, 0 and 2 = walking
         bool stationary = true;
-        float TransitionTime = Tile.TileSideLengthInPixels * 10f;
+        float TransitionTime = 2f;
         float elapsed;
         private Vector2 TargetPos;
 
@@ -35,16 +35,38 @@ namespace Mars_Raiders
         protected override void defineTexture()
         {
             TextureLocation = new Vector2(0, 1);
-            this.x = FrameSizeInPixels * 10;
-            this.y = FrameSizeInPixels * 10;
+            x = 100;
+            y = 100;
+
         }
 
         public override void update(GameTime gt, Level level)
         {
+            if (level.Map[(int)Math.Round((decimal)(x / Tile.TileSideLengthInPixels)), (int)Math.Round((decimal)(y / Tile.TileSideLengthInPixels)) ].Raised)
+            {
+              this.RaisedOffset = Tile.RaisedHeightInPixels;
+              Depth = 0.22f;
+            }
+            else
+            {
+                Depth = 0.49f;
+                RaisedOffset = 0;
+            }
 
             Frame.Y = direction;
             elapsed += (float)gt.ElapsedGameTime.TotalMilliseconds;
-
+            if (Game1.IM["Pause"].IsTapped)
+            {
+                Game1.ProgramPosition = (int)ProgramPositions.MenuDeveloperInitiate;
+            }
+            if (Game1.IM["ZoomOut"].IsTapped)
+            {
+                Game1.Zoom -= 0.1f;
+            }
+            if (Game1.IM["ZoomIn"].IsTapped)
+            {
+                Game1.Zoom += 0.1f;
+            }
             if (stationary)
             {
                 Frame.X = 1;

@@ -40,7 +40,8 @@ namespace Mars_Raiders
             }
             else
             {
-                drawLowered(SB, CM, x, y);
+
+                drawLowered(SB, CM, x, y, level.Map[x,y].Raised);
             }
 
             if (shouldRenderDrop (level,x,y))
@@ -59,26 +60,38 @@ namespace Mars_Raiders
         protected void drawRaised(SpriteBatch SB, ContentManager CM, int x, int y) //draws the tile if it is raised
         {
 
-            SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(Level.XOffset + (x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom))), //the destination rectangle
-               new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels),(int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White); //the source rectangle
+
+          //  SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(Level.XOffset + (x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom))), //the destination rectangle
+      //       new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.25f); //the source rectangle
+ 
+
+            SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(Level.XOffset + (x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((((y * TileSideLengthInPixels) - RaisedHeightInPixels) * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(((TileSideLengthInPixels + RaisedHeightInPixels ) * Game1.Scale * Game1.Zoom))), //the destination rectangle
+               new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels),(int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels)), TileSideLengthInPixels, TileSideLengthInPixels + RaisedHeightInPixels), Color.White,0f,new Vector2(0,0),SpriteEffects.None,0.24f); //the source rectangle
         }
-        protected void drawLowered(SpriteBatch SB, ContentManager CM, int x, int y) //draws tile if it is lowered
+        protected void drawLowered(SpriteBatch SB, ContentManager CM, int x, int y, bool Raised) //draws tile if it is lowered
         {
-            SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
-               new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels)), TileSideLengthInPixels, TileSideLengthInPixels), Color.White); //the source rectangle
+            float YOffset = 0;
+            float Depth = 0.5f;
+            if (Raised)
+            {
+                YOffset = RaisedHeightInPixels;
+                Depth = 0.24f;
+            }
+            SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((((y * TileSideLengthInPixels) -YOffset ) * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
+               new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels)), TileSideLengthInPixels, TileSideLengthInPixels), Color.White,0f, new Vector2(0, 0), SpriteEffects.None, Depth); //the source rectangle
         }
         protected void drawDrop(SpriteBatch SB, ContentManager CM, int x, int y) //draws the drop on the top of the tile (The little darkish line to show the next tile up is lowered)
         {
-            SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
-           new Rectangle(0,0, 1, 1), Color.White); //the source rectangle
+            SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((((y * TileSideLengthInPixels)-RaisedHeightInPixels ) * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
+           new Rectangle(0, 0, 1, 1), Color.White, 0f, new Vector2(0, 0), SpriteEffects.None, 0.23f); //the source rectangle
         }
         protected void drawDropLeft(SpriteBatch SB, ContentManager CM, int x, int y) //draws the drop on the left of the tile (The little darkish line to show the next tile up is lowered)
         {
            // SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(((y + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels  * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
            //new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + TileSideLengthInPixels - RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White,Functions.toRadians (-90f),new Vector2 (0,0),SpriteEffects.None, 0); //the source rectangle
 
-            SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling(((y + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
-    new Rectangle(0,0, 1, 1), Color.White, Functions.toRadians(-90f), new Vector2(0, 0), SpriteEffects.None, 0); //the source rectangle
+            SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling((x * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((((y + 1) * TileSideLengthInPixels) - RaisedHeightInPixels ) * Game1.Scale * Game1.Zoom), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
+    new Rectangle(0,0, 1, 1), Color.White, Functions.toRadians(-90f), new Vector2(0, 0), SpriteEffects.None, 0.23f); //the source rectangle
      
         
         }   
@@ -86,8 +99,8 @@ namespace Mars_Raiders
         {
         //    SB.Draw(CM.Load<Texture2D>("Graphics/TileSheet/TileSheet"), new Rectangle((int)Math.Ceiling(((x + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
         //   new Rectangle((int)(TextureLocation.X * TileSideLengthInPixels), (int)((TextureLocation.Y * TileSideLengthInPixels) + (TextureLocation.Y * RaisedHeightInPixels) + TileSideLengthInPixels - RaisedHeightInPixels), TileSideLengthInPixels, TileSideLengthInPixels), Color.White, Functions.toRadians(90f), new Vector2(0, 0), SpriteEffects.None, 0); //the source rectangle
-            SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling(((x + DropHeightInPixels) * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling((y * TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
-            new Rectangle(0,0, 1, 1), Color.White, Functions.toRadians(90f), new Vector2(0, 0), SpriteEffects.None, 0); //the source rectangle
+           SB.Draw(CM.Load<Texture2D>("Graphics/BlockColours/BlockBlack"), new Rectangle(Level.XOffset + (int)Math.Ceiling(((((x + 1)  * TileSideLengthInPixels) + DropHeightInPixels )  * Game1.Scale * Game1.Zoom)), Level.YOffset + (int)Math.Ceiling(((y * TileSideLengthInPixels) - RaisedHeightInPixels ) * Game1.Scale * Game1.Zoom), (int)Math.Ceiling((TileSideLengthInPixels * Game1.Scale * Game1.Zoom)), (int)Math.Ceiling(DropHeightInPixels * Game1.Scale * Game1.Zoom)), //the destination rectangle
+           new Rectangle(0,0, 1, 1), Color.White, Functions.toRadians(90f), new Vector2(0, 0), SpriteEffects.None, 0.23f); //the source rectangle
    
         
         }

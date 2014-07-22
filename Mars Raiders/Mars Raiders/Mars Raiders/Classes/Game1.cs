@@ -152,7 +152,7 @@ namespace Mars_Raiders
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Black);
-            spriteBatch.Begin(SpriteSortMode.Immediate, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
+            spriteBatch.Begin(SpriteSortMode.BackToFront, BlendState.AlphaBlend,SamplerState.PointClamp,DepthStencilState.Default, RasterizerState.CullNone);
         
 
             switch (ProgramPosition)
