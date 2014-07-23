@@ -157,10 +157,10 @@ namespace Mars_Raiders
 
             switch (ProgramPosition)
             {
-                case (int)ProgramPositions.MenuStart:
+                case (int)ProgramPositions.MenuStart | (int)ProgramPositions.MenuStartInitiate:
                     Menu.Draw(spriteBatch, Content);
                     break;
-                case (int)ProgramPositions.LevelCreator:
+                case (int)ProgramPositions.LevelCreator | (int) ProgramPositions.LevelCreatorInitiate:
                     Game1.Level.Draw(spriteBatch, Content);
                     break;
                 case (int)ProgramPositions.PlayGame:

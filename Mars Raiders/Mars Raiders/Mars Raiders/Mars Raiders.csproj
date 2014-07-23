@@ -17,7 +17,8 @@
     <XnaCrossPlatformGroupID>81fe3c4b-989e-4ca6-81ac-5b07c3a33d13</XnaCrossPlatformGroupID>
     <XnaOutputType>Game</XnaOutputType>
     <ApplicationIcon>Game.ico</ApplicationIcon>
-    <Thumbnail>GameThumbnail.png</Thumbnail>
+    <Thumbnail>
+    </Thumbnail>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -114,6 +115,9 @@
     <Compile Include="Classes\Entity\Player.cs" />
     <Compile Include="Classes\InputManager\Action.cs" />
     <Compile Include="Classes\InputManager\InputManager.cs" />
+    <Compile Include="Classes\Level\LevelType.cs" />
+    <Compile Include="Classes\Level\TileInteriorPanel.cs" />
+    <Compile Include="Classes\Level\TileExteriorPanel.cs" />
     <Compile Include="Classes\Misc\Function.cs" />
     <Compile Include="Classes\IO\CommonAppData.cs" />
     <Compile Include="Classes\Level\TileGritIce.cs" />

@@ -35,23 +35,14 @@ namespace Mars_Raiders
         protected override void defineTexture()
         {
             TextureLocation = new Vector2(0, 1);
-            x = 100;
-            y = 100;
+            x = 32;
+            y = 32;
 
         }
 
         public override void update(GameTime gt, Level level)
         {
-            if (level.Map[(int)Math.Round((decimal)(x / Tile.TileSideLengthInPixels)), (int)Math.Round((decimal)(y / Tile.TileSideLengthInPixels)) ].Raised)
-            {
-              this.RaisedOffset = Tile.RaisedHeightInPixels;
-              Depth = 0.22f;
-            }
-            else
-            {
-                Depth = 0.49f;
-                RaisedOffset = 0;
-            }
+           
 
             Frame.Y = direction;
             elapsed += (float)gt.ElapsedGameTime.TotalMilliseconds;

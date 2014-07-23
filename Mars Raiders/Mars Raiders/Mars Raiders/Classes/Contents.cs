@@ -44,15 +44,15 @@ namespace Mars_Raiders
 
         public void Level_Creator_Initiate(ContentManager Content)
         {
-            Game1.Level.generate();
+            Game1.Level.generate(LevelType.Interior);
             Game1.Level.mode = "Edit"; //sets to editor mode
             Game1.ProgramPosition = (int)ProgramPositions.LevelCreator;
         }
 
         public void Play_Game_Initiate()
         {
-            Game1.Level.generate();
-            Game1.Level.load();
+            Game1.Level.generate(LevelType.Interior);
+          //  Game1.Level.load();
             Game1.Level.mode = "Play";
             Game1.ProgramPosition = (int)ProgramPositions.PlayGame;
         }

@@ -32,6 +32,7 @@ namespace Mars_Raiders
         protected abstract void define();
         public abstract void update(GameTime gt);
 
+      //  public void draw(SpriteBatch SB, CM, )
         public void draw(SpriteBatch SB, ContentManager CM, int x, int y, Level level)
         {
             if (this.shouldRenderRaised(level, x, y)) //if it is raised

@@ -34,5 +34,10 @@ namespace Mars_Raiders
         {
             return (float)Math.PI * angle / 180;
         }
+
+        public static int toGridCoords(float c)
+        {
+            return (int) Math.Round(c / Tile.TileSideLengthInPixels);
+        }
     }
 }

@@ -14,6 +14,9 @@ namespace Mars_Raiders
     public class EntityCursor : Entity
     {
 
+        private bool BrushToggle;
+        private Tile BrushTile = new TileIce();
+
         public EntityCursor()
             : base()
         {
@@ -32,8 +35,8 @@ namespace Mars_Raiders
 
             if (!level.Paused)
             {
-                this.x = (int)((MousePosition.X + Level.XOffset) / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
-                this.y = (int)((MousePosition.Y + Level.YOffset) / Tile.TileSideLengthInPixels / Game1.Scale / Game1.Zoom);
+                this.x = (int)(MousePosition.X) - Level.XOffset;
+                this.y = (int)(MousePosition.Y) - Level.YOffset;
 
                  if (Game1.IM["Pause"].IsTapped)
                 {
@@ -41,8 +44,15 @@ namespace Mars_Raiders
                 }
                 if (Game1.IM["Raise"].IsTapped)
                 {
-                    level.Map[x, y].Raised = !level.Map[x, y].Raised;
+                   // level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised = !level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised;
+                    BrushToggle = !level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised;
                 }
+                if (Game1.IM["Raise"].IsDown)
+                {
+                    // level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised = !level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised;
+                    level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)].Raised = BrushToggle ;
+                }
+              
                 if (Game1.IM["ZoomOut"].IsTapped)
                 {
                     Game1.Zoom -= 0.1f;
@@ -53,19 +63,19 @@ namespace Mars_Raiders
                 }
                 if (Game1.IM["PlaceBlock1"].IsTapped)
                 {
-                    level.Map[x, y] = new TileGritIce();
+                    level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)] = new TileGritIce();
                 }
                 if (Game1.IM["PlaceBlock2"].IsTapped)
                 {
-                    level.Map[x, y] = new TileIceRock();
+                    level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)] = new TileIceRock();
                 }
                 if (Game1.IM["PlaceBlock3"].IsTapped)
                 {
-                    level.Map[x, y] = new TileStone();
+                     level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)] =  new TileStone();
                 }
                 if (Game1.IM["PlaceBlock4"].IsTapped)
                 {
-                    level.Map[x, y] = new TileIce();
+                    level.Map[Functions.toGridCoords(x), Functions.toGridCoords(y)] = new TileIce();
                 }
                 if (Game1.IM["Save"].IsTapped)
                 {

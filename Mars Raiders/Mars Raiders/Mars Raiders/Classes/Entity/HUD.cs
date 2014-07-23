@@ -16,6 +16,10 @@ namespace Mars_Raiders
     class HUD
     {
 
+
+
+        private Tile DisplayTile = new TileExteriorPanel();
+
         private Texture2D texture;
         public void update(GameTime time)
         {
@@ -32,6 +36,13 @@ namespace Mars_Raiders
             {
                 sb.Draw(texture, new Rectangle(0, 0,(int) Game1.ScreenSize.X, (int)Game1.ScreenSize.Y), Color.White);
             }
+
+    
+        }
+
+        public void setDrawTile(Tile TileToDisplay)
+        {
+            DisplayTile = TileToDisplay;
         }
     }
 }
